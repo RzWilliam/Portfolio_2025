@@ -1,3 +1,15 @@
+import reactLogo from '../assets/logos/react.png';
+import typescriptLogo from '../assets/logos/typescript.png';
+import nextjsLogo from '../assets/logos/nextjs.png';
+import tailwindLogo from '../assets/logos/tailwind.png';
+import nodejsLogo from '../assets/logos/nodejs.png';
+import symfonyLogo from '../assets/logos/symfony.png';
+import socketioLogo from '../assets/logos/socketio.png';
+import phpLogo from '../assets/logos/php.png';
+import gitLogo from '../assets/logos/git.png';
+import figmaLogo from '../assets/logos/figma.png';
+import supabaseLogo from '../assets/logos/supabase.png';
+
 export interface PortfolioEntry {
   id: string;
   title: string;
@@ -74,7 +86,7 @@ export const portfolioEntries: PortfolioEntry[] = [
       'Maîtrise avancée de React 18+, hooks, context, et écosystème.',
     category: 'skill-item',
     skillCategory: 'frontend',
-    logo: '/src/assets/logos/react.png',
+    logo: reactLogo,
     position: { x: 600, y: -250 },
   },
   {
@@ -85,7 +97,7 @@ export const portfolioEntries: PortfolioEntry[] = [
       'Expertise en TypeScript pour des applications robustes et maintenables.',
     category: 'skill-item',
     skillCategory: 'frontend',
-    logo: '/src/assets/logos/typescript.png',
+    logo: typescriptLogo,
     position: { x: 700, y: -300 },
   },
   {
@@ -96,7 +108,7 @@ export const portfolioEntries: PortfolioEntry[] = [
       "Développement d'applications SSR/SSG avec Next.js 14+.",
     category: 'skill-item',
     skillCategory: 'frontend',
-    logo: '/src/assets/logos/nextjs.png',
+    logo: nextjsLogo,
     position: { x: 800, y: -300 },
   },
   {
@@ -106,7 +118,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription: 'Design rapide et responsive avec Tailwind CSS.',
     category: 'skill-item',
     skillCategory: 'frontend',
-    logo: '/src/assets/logos/tailwind.png',
+    logo: tailwindLogo,
     position: { x: 900, y: -250 },
   },
 
@@ -119,7 +131,7 @@ export const portfolioEntries: PortfolioEntry[] = [
       'Développement backend avec Node.js et écosystème npm.',
     category: 'skill-item',
     skillCategory: 'backend',
-    logo: '/src/assets/logos/nodejs.png',
+    logo: nodejsLogo,
     position: { x: 1000, y: -100 },
   },
   {
@@ -130,7 +142,7 @@ export const portfolioEntries: PortfolioEntry[] = [
       "Développement d'applications web robustes avec Symfony.",
     category: 'skill-item',
     skillCategory: 'backend',
-    logo: '/src/assets/logos/symfony.png',
+    logo: symfonyLogo,
     position: { x: 1100, y: -50 },
   },
   {
@@ -141,7 +153,7 @@ export const portfolioEntries: PortfolioEntry[] = [
       'Communication temps réel bidirectionnelle avec Socket.IO.',
     category: 'skill-item',
     skillCategory: 'backend',
-    logo: '/src/assets/logos/socketio.png',
+    logo: socketioLogo,
     position: { x: 1100, y: 75 },
   },
   {
@@ -152,7 +164,7 @@ export const portfolioEntries: PortfolioEntry[] = [
       'Développement backend avec PHP pour des applications web dynamiques.',
     category: 'skill-item',
     skillCategory: 'backend',
-    logo: '/src/assets/logos/php.png',
+    logo: phpLogo,
     position: { x: 1000, y: 150 },
   },
 
@@ -164,7 +176,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription: 'Gestion de code source et collaboration avec Git.',
     category: 'skill-item',
     skillCategory: 'other',
-    logo: '/src/assets/logos/git.png',
+    logo: gitLogo,
     position: { x: 650, y: 280 },
   },
   {
@@ -174,7 +186,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription: "Conception d'interfaces et prototypage avec Figma.",
     category: 'skill-item',
     skillCategory: 'other',
-    logo: '/src/assets/logos/figma.png',
+    logo: figmaLogo,
     position: { x: 750, y: 330 },
   },
   {
@@ -185,7 +197,7 @@ export const portfolioEntries: PortfolioEntry[] = [
       "Développement d'applications avec Supabase pour une gestion simplifiée de la base de données.",
     category: 'skill-item',
     skillCategory: 'other',
-    logo: '/src/assets/logos/supabase.png',
+    logo: supabaseLogo,
     position: { x: 850, y: 280 },
   },
 ];

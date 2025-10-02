@@ -101,7 +101,6 @@ body {
 /* Styles pour les handles custom - MASQUÉS */
 .react-flow__handle {
   opacity: 0 !important;
-  display: none !important;
   pointer-events: none !important;
 }
 
