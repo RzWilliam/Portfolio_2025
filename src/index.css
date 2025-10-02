@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+  color: #e8e8e8;
+}
+
+/* Custom React Flow styles */
+.react-flow__background {
+  background: transparent !important;
+}
+
+.react-flow__minimap {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid #4ecdc4 !important;
+}
+
+.react-flow__controls {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid #4ecdc4 !important;
+}
+
+.react-flow__controls button {
+  background: rgba(78, 205, 196, 0.2) !important;
+  border: 1px solid #4ecdc4 !important;
+  color: #4ecdc4 !important;
+}
+
+.react-flow__controls button:hover {
+  background: rgba(78, 205, 196, 0.4) !important;
+}
+
+/* Styles pour les îlots de nœuds */
+.react-flow__node.react-flow__node-default {
+  background: transparent !important;
+  border: none !important;
+}
+
+.react-flow__node.react-flow__node-default.selected {
+  box-shadow: 0 0 20px rgba(78, 205, 196, 0.8) !important;
+}
+
+/* Animation pour le bouton de sidebar */
+.sidebar-toggle-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-toggle-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3);
+}
+
+/* Style pour le nœud central "À Propos" */
+.central-node {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 20px rgba(138, 92, 246, 0.8));
+  position: relative;
+  z-index: 10;
+}
+/* Styles pour les îlots par couleur */
+.skill-island {
+  position: relative;
+}
+
+.skill-island::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -400px;
+  bottom: -50px;
+  background: radial-gradient(ellipse, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  border-radius: 50px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Styles pour les nœuds custom */
+.react-flow__node-customPortfolio {
+  background: transparent !important;
+  border: none !important;
+}
+
+.react-flow__node-customPortfolio.selected {
+  box-shadow: 0 0 25px rgba(78, 205, 196, 0.9) !important;
+}
+
+/* Styles pour les handles custom */
+.react-flow__handle {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.react-flow__handle:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Styles pour les edges custom */
+.react-flow__edge-customPortfolio {
+  pointer-events: all;
+}
+
+.react-flow__edge-customPortfolio.selected {
+  z-index: 1000;
+}
+
+/* Animation spéciale pour les connexions */
+@keyframes flow-animation {
+  0% {
+    stroke-dashoffset: 20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animated-edge {
+  stroke-dasharray: 5,5;
+  animation: flow-animation 1s linear infinite;
+}
+
+.project-island {
+  position: relative;
+}
+
+.project-island::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -400px;
+  bottom: -50px;
+  background: radial-gradient(ellipse, rgba(239, 68, 68, 0.1) 0%, transparent 70%);
+  border-radius: 50px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.education-island {
+  position: relative;
+}
+
+.education-island::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+  border-radius: 50px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.contact-island {
+  position: relative;
+}
+
+.contact-island::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: radial-gradient(circle, rgba(234, 179, 8, 0.1) 0%, transparent 70%);
+  border-radius: 50px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Améliorations pour la sidebar */
+.sidebar-content {
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.5);
+  border-left: 2px solid rgba(78, 205, 196, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-content:hover {
+  background: rgba(0, 0, 0, 0.6);
+  border-left-color: rgba(78, 205, 196, 0.5);
+}
+
+/* Animation d'apparition de la nebula */
+@keyframes nebula {
+  0%, 100% {
+    transform: translateX(-100%);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(100%);
+    opacity: 0.7;
+  }
+}
