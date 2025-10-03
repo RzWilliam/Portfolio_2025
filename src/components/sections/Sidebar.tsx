@@ -14,15 +14,16 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
     <div className="fixed inset-0 z-40">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
 
-      <aside className="absolute right-0 top-0 h-full">
+      <aside className="absolute right-0 top-0 h-full w-full sm:w-1/2">
         <div
           onClick={(e) => e.stopPropagation()}
-          className="sidebar-content w-96 bg-black/40 backdrop-blur-xl border-l border-discovery-teal/30 p-6 overflow-y-auto h-full"
+          className="sidebar-content w-full bg-black/40 backdrop-blur-xl sm:border-l sm:border-teal-400/40 p-6 overflow-y-auto h-full"
           role="dialog"
           aria-modal="true"
         >
           <div className="space-y-6">
             <div>
+
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-white">{selectedEntry.title}</h2>
                 <div className="flex items-center gap-3">
@@ -35,6 +36,16 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
                   </button>
                 </div>
               </div>
+
+              {selectedEntry.previewImage && (
+                <a href={selectedEntry.link} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={selectedEntry.previewImage}
+                    alt={selectedEntry.title}
+                    className="w-full h-auto rounded-lg mb-4"
+                  />
+                </a>
+              )}
 
               <div
                 className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-4 ${
@@ -81,9 +92,9 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
                   href={selectedEntry.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-mystery-red to-mystery-red/80 text-white font-medium rounded-lg hover:from-mystery-red/80 hover:to-mystery-red transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 w-full justify-center"
                 >
-                  🔗 Voir le projet
+                  Voir le projet
                 </a>
               )}
 

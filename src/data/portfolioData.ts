@@ -11,6 +11,7 @@ import figmaLogo from '../assets/logos/figma.png';
 import supabaseLogo from '../assets/logos/supabase.png';
 
 import MantrackLogo from '../assets/logos/mantrack.png';
+import MantrackPreview from '../assets/projects/mantrack.webp';
 
 export interface PortfolioEntry {
   id: string;
@@ -28,6 +29,8 @@ export interface PortfolioEntry {
   technologies?: string[];
   link?: string;
   logo?: string; // Chemin vers le logo (pour les skill-item)
+  previewImage?: string; // Image de présentation pour les projets (optionnel)
+  repository?: string; // Lien vers le dépôt du projet (optionnel)
   skillCategory?: 'frontend' | 'backend' | 'other'; // Pour organiser les skills
   isClickable?: boolean; // Pour définir si le nœud est cliquable ou non (par défaut true)
   email?: string; // Pour le contact
@@ -206,19 +209,23 @@ export const portfolioEntries: PortfolioEntry[] = [
   {
     id: 'project-mantrack',
     title: 'Mantrack',
-    description: 'Application pour rechercher et gérer une collection de mangas',
-    detailedDescription: 'Mantrack est une application de gestion de collection',
+    description:
+      'Application pour rechercher et gérer une collection de mangas',
+    detailedDescription:
+      'Mantrack est une application de gestion de collection',
     category: 'project',
     position: { x: -700, y: -150 },
     technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'Python'],
-    link: 'https://example.com/portfolio',
+    link: 'https://www.mantrack.app/',
     logo: MantrackLogo,
+    previewImage: MantrackPreview,
   },
   {
     id: 'project-chat-app',
     title: 'Chat Temps Réel',
-      description: "Application de chat temps réel avec WebSocket.",
-    detailedDescription: 'Utilisation de Socket.IO et Node.js pour un chat en temps réel avec rooms et notifications.',
+    description: 'Application de chat temps réel avec WebSocket.',
+    detailedDescription:
+      'Utilisation de Socket.IO et Node.js pour un chat en temps réel avec rooms et notifications.',
     category: 'project',
     position: { x: -700, y: 50 },
     technologies: ['Node.js', 'Socket.IO', 'Supabase'],
