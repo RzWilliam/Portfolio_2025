@@ -13,14 +13,15 @@ const initialEdges = createInitialEdges();
 const Main: React.FC = () => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
-  const [selectedEntry, setSelectedEntry] = useState<typeof portfolioEntries[0] | null>(portfolioEntries[0]);
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+  const [selectedEntry, setSelectedEntry] = useState<typeof portfolioEntries[0] | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
   const onNodeClick = useCallback((_event: React.MouseEvent, node: Node) => {
     const entry = portfolioEntries.find(e => e.id === node.id);
     // Ne pas ouvrir la sidebar si le node n'est pas cliquable
     if (entry && entry.isClickable !== false) {
       setSelectedEntry(entry);
+      setIsSidebarOpen(true);
     }
   }, []);
 
