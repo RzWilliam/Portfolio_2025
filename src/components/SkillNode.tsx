@@ -12,7 +12,7 @@ const SkillNode: React.FC<NodeProps> = ({ data, selected }) => {
   const nodeData = data as unknown as SkillNodeData;
 
   return (
-    <div className="relative">
+    <div style={{ transform: 'translate(-50%, -50%)' }} className="relative">
       {/* Handles pour les connexions */}
       <Handle type="target" position={Position.Top} id="top-target" className="opacity-0" />
       <Handle type="source" position={Position.Top} id="top-source" className="opacity-0" />
@@ -24,7 +24,7 @@ const SkillNode: React.FC<NodeProps> = ({ data, selected }) => {
       <Handle type="source" position={Position.Bottom} id="bottom-source" className="opacity-0" />
 
       {/* Nœud rond avec logo */}
-      <div className={`w-24 h-24 rounded-full bg-zinc-800 shadow-xl border-3 border-zinc-400/50 cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-2xl flex items-center justify-center p-3 ${selected ? 'ring-4 ring-discovery-teal/70 scale-105' : ''}`}>
+  <div className={`w-24 h-24 rounded-full bg-zinc-800 shadow-xl border-3 border-zinc-400/50 cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-2xl flex items-center justify-center p-3 ${selected ? 'ring-4 ring-discovery-teal/70 scale-105' : ''}`}>
         {nodeData.logo ? (
           <img 
             src={nodeData.logo} 

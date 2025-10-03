@@ -12,7 +12,7 @@ const CategoryNode: React.FC<NodeProps> = ({ data, selected }) => {
   const isClickable = nodeData.isClickable !== false; // Par défaut cliquable
 
   return (
-    <div className="relative">
+    <div style={{ transform: 'translate(-50%, -50%)' }} className="relative">
       {/* Handles pour les connexions */}
       <Handle type="target" position={Position.Top} id="top-target" className="opacity-0" />
       <Handle type="source" position={Position.Top} id="top-source" className="opacity-0" />

@@ -14,7 +14,7 @@ const ProjectNode: React.FC<NodeProps> = ({ data, selected }) => {
   const nodeData = data as unknown as ProjectNodeData;
 
   return (
-    <div className="relative">
+    <div style={{ transform: 'translate(-50%, -50%)' }} className="relative">
       {/* Handles pour connexions */}
       <Handle
         type="target"

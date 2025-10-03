@@ -15,7 +15,8 @@ const CustomPortfolioNode: React.FC<NodeProps> = ({ data, selected }) => {
   const nodeData = data as unknown as CustomNodeData;
 
   return (
-    <div className="relative">
+    // Use a wrapper that will be centered on the node position
+    <div style={{ transform: 'translate(-50%, -50%)' }} className="relative">
       {/* paired handles on each side with deterministic ids */}
       <Handle type="source" position={Position.Top} id="top-source" className="opacity-0" />
       <Handle type="target" position={Position.Top} id="top-target" className="opacity-0" />

@@ -68,7 +68,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'category',
     skillCategory: 'frontend',
     isClickable: false, // Catégorie non cliquable
-    position: { x: 750, y: -100 },
+    position: { x: 600, y: -100 },
   },
   {
     id: 'backend-cat',
@@ -78,7 +78,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'category',
     skillCategory: 'backend',
     isClickable: false, // Catégorie non cliquable
-    position: { x: 850, y: 40 },
+    position: { x: 750, y: 0 },
   },
   {
     id: 'other-cat',
@@ -88,7 +88,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'category',
     skillCategory: 'other',
     isClickable: false, // Catégorie non cliquable
-    position: { x: 750, y: 180 },
+    position: { x: 600, y: 100 },
   },
 
   {
@@ -98,7 +98,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription: '',
     category: 'category',
     isClickable: false, // Catégorie non cliquable
-    position: { x: -620, y: 40 },
+    position: { x: -750, y: 0 },
   },
 
   // Skills Frontend (petits nœuds ronds avec logos)
@@ -111,7 +111,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'frontend',
     logo: reactLogo,
-    position: { x: 600, y: -250 },
+    position: { x: 450, y: -200 },
   },
   {
     id: 'skill-typescript',
@@ -123,7 +123,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'frontend',
     logo: typescriptLogo,
     isClickable: false,
-    position: { x: 700, y: -300 },
+    position: { x: 540, y: -300 },
   },
   {
     id: 'skill-nextjs',
@@ -135,7 +135,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'frontend',
     logo: nextjsLogo,
     isClickable: false,
-    position: { x: 800, y: -300 },
+    position: { x: 660, y: -300 },
   },
   {
     id: 'skill-tailwind',
@@ -146,7 +146,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'frontend',
     logo: tailwindLogo,
     isClickable: false,
-    position: { x: 900, y: -250 },
+    position: { x: 750, y: -200 },
   },
 
   // Skills Backend (petits nœuds ronds avec logos)
@@ -160,7 +160,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'backend',
     logo: nodejsLogo,
     isClickable: false,
-    position: { x: 1000, y: -100 },
+    position: { x: 900, y: -100 },
   },
   {
     id: 'skill-symfony',
@@ -172,7 +172,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'backend',
     logo: symfonyLogo,
     isClickable: false,
-    position: { x: 1100, y: -50 },
+    position: { x: 1000, y: -60 },
   },
   {
     id: 'skill-socketio',
@@ -184,7 +184,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'backend',
     logo: socketioLogo,
     isClickable: false,
-    position: { x: 1100, y: 75 },
+    position: { x: 1000, y: 60 },
   },
   {
     id: 'skill-php',
@@ -196,7 +196,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'backend',
     logo: phpLogo,
     isClickable: false,
-    position: { x: 1000, y: 150 },
+    position: { x: 900, y: 100 },
   },
 
   // Skills Autres (petits nœuds ronds avec logos)
@@ -209,7 +209,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'other',
     logo: gitLogo,
     isClickable: false,
-    position: { x: 650, y: 280 },
+    position: { x: 500, y: 200 },
   },
   {
     id: 'skill-figma',
@@ -220,7 +220,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'other',
     logo: figmaLogo,
     isClickable: false,
-    position: { x: 750, y: 330 },
+    position: { x: 600, y: 250 },
   },
   {
     id: 'skill-supabase',
@@ -232,7 +232,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'other',
     logo: supabaseLogo,
     isClickable: false,
-    position: { x: 850, y: 280 },
+    position: { x: 700, y: 200 },
   },
   // Projects (cards)
   {
