@@ -1,5 +1,19 @@
 import React from 'react';
 import type { PortfolioEntry } from '../../data/portfolioData';
+import reactLogo from '../../assets/logos/react.webp';
+import typescriptLogo from '../../assets/logos/typescript.webp';
+import nextjsLogo from '../../assets/logos/nextjs.webp';
+import tailwindLogo from '../../assets/logos/tailwind.webp';
+import nodejsLogo from '../../assets/logos/nodejs.webp';
+import symfonyLogo from '../../assets/logos/symfony.webp';
+import socketioLogo from '../../assets/logos/socketio.webp';
+import phpLogo from '../../assets/logos/php.webp';
+import gitLogo from '../../assets/logos/git.webp';
+import figmaLogo from '../../assets/logos/figma.webp';
+import supabaseLogo from '../../assets/logos/supabase.webp';
+import pythonLogo from '../../assets/logos/python.webp';
+import phaserLogo from '../../assets/logos/phaser.webp';
+import threejsLogo from '../../assets/logos/threejs.webp';
 
 interface SidebarProps {
   selectedEntry: PortfolioEntry | null;
@@ -10,11 +24,53 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => {
   if (!selectedEntry || !isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 z-40">
-      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
+  // Helper to render technology logos (returns JSX elements)
+  const renderTechLogos = (technologies?: string[]) => {
+    if (!technologies || technologies.length === 0) return null;
 
-      <aside className="absolute right-0 top-0 h-full w-full sm:w-1/2">
+    const techLogos: Record<string, string> = {
+      'React': reactLogo,
+      'TypeScript': typescriptLogo,
+      'Next.js': nextjsLogo,
+      'Tailwind': tailwindLogo,
+      'Node.js': nodejsLogo,
+      'Symfony': symfonyLogo,
+      'Socket.IO': socketioLogo,
+      'PHP': phpLogo,
+      'Git': gitLogo,
+      'Figma': figmaLogo,
+      'Supabase': supabaseLogo,
+      'Python': pythonLogo,
+      'Phaser': phaserLogo,
+      'Three.js': threejsLogo,
+    };
+
+    return technologies.map((tech, idx) => {
+      const logo = techLogos[tech];
+      return logo ? (
+        <img
+          key={idx}
+          src={logo}
+          alt={tech}
+          title={tech}
+          className="w-16 h-auto object-contain p-1"
+        />
+      ) : (
+        <span
+          key={idx}
+          className="px-3 py-1 bg-discovery-teal/20 text-discovery-teal border border-discovery-teal/30 rounded-full text-sm font-medium"
+        >
+          {tech}
+        </span>
+      );
+    });
+  };
+
+  return (
+    <div className="fixed inset-0">
+      <div className="absolute inset-0 bg-black/40 z-40" onClick={onClose} />
+
+      <aside className="fixed right-0 top-0 h-full w-full sm:w-1/2 z-50">
         <div
           onClick={(e) => e.stopPropagation()}
           className="sidebar-content w-full bg-black/40 backdrop-blur-xl sm:border-l sm:border-teal-400/40 p-6 overflow-y-auto h-full"
@@ -47,25 +103,9 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
                 </a>
               )}
 
-              <div
-                className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-4 ${
-                  selectedEntry.category === 'project'
-                    ? 'bg-red-500/20 text-red-300 border border-red-500/30'
-                    : selectedEntry.category === 'skill'
-                    ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
-                    : selectedEntry.category === 'experience'
-                    ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
-                    : selectedEntry.category === 'contact'
-                    ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30'
-                    : selectedEntry.category === 'category'
-                    ? 'bg-blue-400/20 text-blue-300 border border-blue-400/30'
-                    : selectedEntry.category === 'skill-item'
-                    ? 'bg-cyan-400/20 text-cyan-300 border border-cyan-400/30'
-                    : 'bg-gray-500/20 text-gray-300 border border-gray-500/30'
-                }`}
-              >
-                {selectedEntry.category.toUpperCase().replace('-', ' ')}
-              </div>
+              {selectedEntry.category === 'project' && (
+                <h3 className="text-xl font-bold text-white mb-2">{selectedEntry.title}, c'est quoi ?</h3>
+              )}
 
               <p className="text-gray-300 leading-relaxed mb-6">
                 {selectedEntry.detailedDescription}
@@ -74,15 +114,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
               {selectedEntry.technologies && (
                 <div className="mb-6">
                   <h4 className="text-discovery-teal font-semibold mb-3">Technologies :</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedEntry.technologies.map((tech, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-discovery-teal/20 text-discovery-teal border border-discovery-teal/30 rounded-full text-sm font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="flex flex-wrap gap-2 items-center">
+                    {renderTechLogos(selectedEntry.technologies)}
                   </div>
                 </div>
               )}

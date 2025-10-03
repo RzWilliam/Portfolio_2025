@@ -69,9 +69,9 @@ const ProjectNode: React.FC<NodeProps> = ({ data, selected }) => {
                     {t}
                   </span>
                 ))}
-                {nodeData.technologies.length > 4 && (
+                {nodeData.technologies.length > 3 && (
                   <span className="text-xs px-2 py-1 bg-black/40 rounded-full border border-gray-700">
-                    +{nodeData.technologies.length - 4}
+                    +{nodeData.technologies.length - 3}
                   </span>
                 )}
               </div>
