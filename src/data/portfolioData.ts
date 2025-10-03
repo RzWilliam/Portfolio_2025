@@ -10,6 +10,8 @@ import gitLogo from '../assets/logos/git.png';
 import figmaLogo from '../assets/logos/figma.png';
 import supabaseLogo from '../assets/logos/supabase.png';
 
+import MantrackLogo from '../assets/logos/mantrack.png';
+
 export interface PortfolioEntry {
   id: string;
   title: string;
@@ -199,5 +201,28 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'other',
     logo: supabaseLogo,
     position: { x: 850, y: 280 },
+  },
+  // Projects (cards)
+  {
+    id: 'project-mantrack',
+    title: 'Mantrack',
+    description: 'Application pour rechercher et gérer une collection de mangas',
+    detailedDescription: 'Mantrack est une application de gestion de collection',
+    category: 'project',
+    position: { x: -700, y: -150 },
+    technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'Python'],
+    link: 'https://example.com/portfolio',
+    logo: MantrackLogo,
+  },
+  {
+    id: 'project-chat-app',
+    title: 'Chat Temps Réel',
+      description: "Application de chat temps réel avec WebSocket.",
+    detailedDescription: 'Utilisation de Socket.IO et Node.js pour un chat en temps réel avec rooms et notifications.',
+    category: 'project',
+    position: { x: -700, y: 50 },
+    technologies: ['Node.js', 'Socket.IO', 'Supabase'],
+    link: 'https://example.com/chat',
+    logo: undefined,
   },
 ];

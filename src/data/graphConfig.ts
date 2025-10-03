@@ -54,6 +54,8 @@ export const createInitialNodes = (
       nodeType = 'skillNode';
     } else if (entry.category === 'skill-category') {
       nodeType = 'skillCategoryNode';
+    } else if (entry.category === 'project') {
+      nodeType = 'projectNode';
     }
 
     return {

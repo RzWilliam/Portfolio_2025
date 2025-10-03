@@ -15,6 +15,7 @@ import '@xyflow/react/dist/style.css';
 import CustomPortfolioNode from '../CustomPortfolioNode';
 import SkillNode from '../SkillNode';
 import SkillCategoryNode from '../SkillCategoryNode';
+import ProjectNode from '../ProjectNode';
 import { portfolioEntries } from '../../data/portfolioData';
 
 interface ReactFlowCanvasProps {
@@ -37,6 +38,7 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
     customPortfolio: CustomPortfolioNode,
     skillNode: SkillNode,
     skillCategoryNode: SkillCategoryNode,
+    projectNode: ProjectNode,
   };
 
   const onConnect = useCallback(
