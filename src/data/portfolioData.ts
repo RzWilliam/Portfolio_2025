@@ -1,17 +1,26 @@
-import reactLogo from '../assets/logos/react.png';
-import typescriptLogo from '../assets/logos/typescript.png';
-import nextjsLogo from '../assets/logos/nextjs.png';
-import tailwindLogo from '../assets/logos/tailwind.png';
-import nodejsLogo from '../assets/logos/nodejs.png';
-import symfonyLogo from '../assets/logos/symfony.png';
-import socketioLogo from '../assets/logos/socketio.png';
-import phpLogo from '../assets/logos/php.png';
-import gitLogo from '../assets/logos/git.png';
-import figmaLogo from '../assets/logos/figma.png';
-import supabaseLogo from '../assets/logos/supabase.png';
+import reactLogo from '../assets/logos/react.webp';
+import typescriptLogo from '../assets/logos/typescript.webp';
+import nextjsLogo from '../assets/logos/nextjs.webp';
+import tailwindLogo from '../assets/logos/tailwind.webp';
+import nodejsLogo from '../assets/logos/nodejs.webp';
+import symfonyLogo from '../assets/logos/symfony.webp';
+import socketioLogo from '../assets/logos/socketio.webp';
+import phpLogo from '../assets/logos/php.webp';
+import gitLogo from '../assets/logos/git.webp';
+import figmaLogo from '../assets/logos/figma.webp';
+import supabaseLogo from '../assets/logos/supabase.webp';
 
-import MantrackLogo from '../assets/logos/mantrack.png';
+import MantrackLogo from '../assets/logos/mantrack.webp';
 import MantrackPreview from '../assets/projects/mantrack.webp';
+
+import YGOdleLogo from '../assets/logos/ygodle.webp';
+import YGOdlePreview from '../assets/projects/ygodle.webp';
+
+import BombermanLogo from '../assets/logos/bomberman.webp';
+import BombermanPreview from '../assets/projects/bomberman.webp';
+
+import SolarSystemLogo from '../assets/logos/solar-system.webp';
+import SolarSystemPreview from '../assets/projects/solar-system.webp';
 
 export interface PortfolioEntry {
   id: string;
@@ -113,6 +122,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'frontend',
     logo: typescriptLogo,
+    isClickable: false,
     position: { x: 700, y: -300 },
   },
   {
@@ -124,6 +134,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'frontend',
     logo: nextjsLogo,
+    isClickable: false,
     position: { x: 800, y: -300 },
   },
   {
@@ -134,6 +145,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'frontend',
     logo: tailwindLogo,
+    isClickable: false,
     position: { x: 900, y: -250 },
   },
 
@@ -147,6 +159,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'backend',
     logo: nodejsLogo,
+    isClickable: false,
     position: { x: 1000, y: -100 },
   },
   {
@@ -158,6 +171,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'backend',
     logo: symfonyLogo,
+    isClickable: false,
     position: { x: 1100, y: -50 },
   },
   {
@@ -169,6 +183,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'backend',
     logo: socketioLogo,
+    isClickable: false,
     position: { x: 1100, y: 75 },
   },
   {
@@ -180,6 +195,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'backend',
     logo: phpLogo,
+    isClickable: false,
     position: { x: 1000, y: 150 },
   },
 
@@ -192,6 +208,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'other',
     logo: gitLogo,
+    isClickable: false,
     position: { x: 650, y: 280 },
   },
   {
@@ -202,6 +219,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'other',
     logo: figmaLogo,
+    isClickable: false,
     position: { x: 750, y: 330 },
   },
   {
@@ -213,6 +231,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'other',
     logo: supabaseLogo,
+    isClickable: false,
     position: { x: 850, y: 280 },
   },
   // Projects (cards)
@@ -220,26 +239,53 @@ export const portfolioEntries: PortfolioEntry[] = [
     id: 'project-mantrack',
     title: 'Mantrack',
     description:
-      'Application pour rechercher et gérer une collection de mangas',
+      'Plateforme qui permet de suivre ses lectures de manga, manhwa et manhua.',
     detailedDescription:
-      'Mantrack est une application de gestion de collection',
+      'ManTrack est une plateforme web dédiée aux amateurs de manga, manhwa et manhua, qui permet de gérer sa bibliothèque personnelle, suivre sa progression de lecture et découvrir de nouvelles séries. L’utilisateur peut également ajouter son propre lien de lecture personnalisé pour chaque œuvre, rendant l’expérience totalement adaptée à ses habitudes.',
     category: 'project',
-    position: { x: -1100, y: -150 },
+    position: { x: -1000, y: -300 },
     technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'Python'],
     link: 'https://www.mantrack.app/',
     logo: MantrackLogo,
     previewImage: MantrackPreview,
   },
   {
-    id: 'project-chat-app',
-    title: 'Chat Temps Réel',
-    description: 'Application de chat temps réel avec WebSocket.',
+    id: 'project-bomberman',
+    title: 'Bomberman Multiplayer',
+    description: 'Jeu multijoueur en temps réel inspiré de Bomberman.',
     detailedDescription:
-      'Utilisation de Socket.IO et Node.js pour un chat en temps réel avec rooms et notifications.',
+      'Bomberman Multiplayer est un jeu multijoueur en temps réel où les joueurs s’affrontent dans des arènes, posant des bombes pour détruire des obstacles et éliminer leurs adversaires.',
     category: 'project',
-    position: { x: -1100, y: 50 },
-    technologies: ['Node.js', 'Socket.IO', 'Supabase'],
-    link: 'https://example.com/chat',
-    logo: undefined,
+    position: { x: -1100, y: -100 },
+    technologies: ['React', 'Socket.IO', 'Node.js', 'Phaser'],
+    link: 'https://bomberman-multiplayer.vercel.app/',
+    logo: BombermanLogo,
+    previewImage: BombermanPreview,
+  },
+  {
+    id: 'project-solar-system',
+    title: 'Solar System Explorer',
+    description: 'Explorez le système solaire en 3D interactif.',
+    detailedDescription:
+      "Solar System Explorer est une application web interactive qui permet aux utilisateurs d'explorer le système solaire en 3D. En utilisant des technologies modernes comme React et Three.js, l'application offre une expérience immersive où les utilisateurs peuvent naviguer entre les planètes, découvrir des informations fascinantes sur chacune d'elles, et visualiser leurs orbites en temps réel. C'est un outil éducatif parfait pour les passionnés d'astronomie de tous âges.",
+    category: 'project',
+    position: { x: -1100, y: 100 },
+    technologies: ['Three.js', 'React', 'TypeScript', 'Tailwind'],
+    link: 'https://solar-system-sand-six.vercel.app/',
+    logo: SolarSystemLogo,
+    previewImage: SolarSystemPreview,
+  },
+    {
+    id: 'project-ygodle',
+    title: 'YGOdle',
+    description: 'Jeu quotidien de devinette de cartes Yu-Gi-Oh!',
+    detailedDescription:
+      'YGOdle est un jeu en ligne quotidien inspiré du principe de Wordle, mais adapté à l’univers Yu-Gi-Oh!. Chaque jour, les joueurs doivent deviner une carte Yu-Gi-Oh! en un nombre limité d’essais, en s’appuyant sur des indices comme l’attribut, le type, l’attaque, la défense ou encore l’archétype. Le projet combine base de données, logique de jeu et interface interactive, offrant une expérience à la fois ludique et compétitive pour les passionnés de Yu-Gi-Oh!.',
+    category: 'project',
+    position: { x: -1000, y: 300 },
+    technologies: ['React', 'Supabase', 'TypeScript', 'Tailwind'],
+    link: 'https://www.ygodle.net',
+    logo: YGOdleLogo,
+    previewImage: YGOdlePreview,
   },
 ];

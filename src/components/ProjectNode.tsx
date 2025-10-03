@@ -18,14 +18,8 @@ const ProjectNode: React.FC<NodeProps> = ({ data, selected }) => {
       {/* Handles pour connexions */}
       <Handle
         type="target"
-        position={Position.Left}
-        id="left-target"
-        className="opacity-0"
-      />
-      <Handle
-        type="source"
         position={Position.Right}
-        id="right-source"
+        id="right-target"
         className="opacity-0"
       />
 

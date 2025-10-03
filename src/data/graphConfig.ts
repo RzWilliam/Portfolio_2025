@@ -241,6 +241,48 @@ export const createInitialEdges = (): Edge[] => {
       style: { stroke: '#fff', strokeWidth: 2 },
       animated: false,
     },
+
+    // Connexions des projets vers les projets individuels
+    {
+      id: 'ecat-ygodle',
+      source: 'projects-cat',
+      target: 'project-ygodle',
+      sourceHandle: 'bottom-source',
+      targetHandle: 'right-target',
+      type: 'bezier',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
+    {
+      id: 'ecat-solar-system',
+      source: 'projects-cat',
+      target: 'project-solar-system',
+      sourceHandle: 'left-source',
+      targetHandle: 'right-target',
+      type: 'bezier',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
+    {
+      id: 'ecat-bomberman',
+      source: 'projects-cat',
+      target: 'project-bomberman',
+      sourceHandle: 'left-source',
+      targetHandle: 'right-target',
+      type: 'bezier',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
+    {
+      id: 'ecat-mantrack',
+      source: 'projects-cat',
+      target: 'project-mantrack',
+      sourceHandle: 'top-source',
+      targetHandle: 'right-target',
+      type: 'bezier',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    }
   ];
 
   return edges;
