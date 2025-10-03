@@ -56,7 +56,7 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
       onNodeClick={onNodeClick}
       nodeTypes={nodeTypes}
       fitView
-      nodesDraggable={false}
+      nodesDraggable={true}
       nodesConnectable={true}
       elementsSelectable={true}
       attributionPosition="bottom-left"

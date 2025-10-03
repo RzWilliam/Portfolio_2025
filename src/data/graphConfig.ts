@@ -74,7 +74,7 @@ export const createInitialNodes = (
         isClickable: entry.isClickable !== false, // Par défaut true
         connectionPoints: getConnectionPoints(entry),
       },
-      draggable: false,
+      draggable: true,
       selectable: true,
     };
   });
