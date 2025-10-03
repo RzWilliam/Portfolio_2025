@@ -53,16 +53,6 @@ body {
   box-shadow: 0 0 20px rgba(78, 205, 196, 0.8) !important;
 }
 
-/* Animation pour le bouton de sidebar */
-.sidebar-toggle-btn {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.sidebar-toggle-btn:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-  box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3);
-}
-
 /* Style pour le nœud central "À Propos" */
 .central-node {
   transform: scale(1.15);

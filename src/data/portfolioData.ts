@@ -23,7 +23,7 @@ export interface PortfolioEntry {
     | 'skill'
     | 'experience'
     | 'contact'
-    | 'skill-category'
+    | 'category'
     | 'skill-item';
   position: { x: number; y: number }; // Position du nœud (obligatoire)
   technologies?: string[];
@@ -50,13 +50,13 @@ export const portfolioEntries: PortfolioEntry[] = [
     position: { x: 0, y: 0 },
   },
 
-  // Catégories de compétences (nœuds moyens)
+  // Catégories (nœuds intermédiaires)
   {
     id: 'frontend-cat',
     title: 'Frontend',
     description: '',
     detailedDescription: '',
-    category: 'skill-category',
+    category: 'category',
     skillCategory: 'frontend',
     isClickable: false, // Catégorie non cliquable
     position: { x: 750, y: -100 },
@@ -66,7 +66,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     title: 'Backend',
     description: '',
     detailedDescription: '',
-    category: 'skill-category',
+    category: 'category',
     skillCategory: 'backend',
     isClickable: false, // Catégorie non cliquable
     position: { x: 850, y: 40 },
@@ -76,10 +76,20 @@ export const portfolioEntries: PortfolioEntry[] = [
     title: 'Autres',
     description: '',
     detailedDescription: '',
-    category: 'skill-category',
+    category: 'category',
     skillCategory: 'other',
     isClickable: false, // Catégorie non cliquable
     position: { x: 750, y: 180 },
+  },
+
+  {
+    id: 'projects-cat',
+    title: 'Projets',
+    description: '',
+    detailedDescription: '',
+    category: 'category',
+    isClickable: false, // Catégorie non cliquable
+    position: { x: -620, y: 40 },
   },
 
   // Skills Frontend (petits nœuds ronds avec logos)
@@ -214,7 +224,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription:
       'Mantrack est une application de gestion de collection',
     category: 'project',
-    position: { x: -700, y: -150 },
+    position: { x: -1100, y: -150 },
     technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'Python'],
     link: 'https://www.mantrack.app/',
     logo: MantrackLogo,
@@ -227,7 +237,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription:
       'Utilisation de Socket.IO et Node.js pour un chat en temps réel avec rooms et notifications.',
     category: 'project',
-    position: { x: -700, y: 50 },
+    position: { x: -1100, y: 50 },
     technologies: ['Node.js', 'Socket.IO', 'Supabase'],
     link: 'https://example.com/chat',
     logo: undefined,

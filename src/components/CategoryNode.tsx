@@ -1,14 +1,14 @@
 import React from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 
-interface SkillCategoryNodeData {
+interface CategoryNodeData {
   label: string;
   title: string;
   isClickable?: boolean;
 }
 
-const SkillCategoryNode: React.FC<NodeProps> = ({ data, selected }) => {
-  const nodeData = data as unknown as SkillCategoryNodeData;
+const CategoryNode: React.FC<NodeProps> = ({ data, selected }) => {
+  const nodeData = data as unknown as CategoryNodeData;
   const isClickable = nodeData.isClickable !== false; // Par défaut cliquable
 
   return (
@@ -19,6 +19,7 @@ const SkillCategoryNode: React.FC<NodeProps> = ({ data, selected }) => {
       
       <Handle type="target" position={Position.Left} id="left-target" className="opacity-0" />
       <Handle type="source" position={Position.Right} id="right-source" className="opacity-0" />
+      <Handle type="target" position={Position.Right} id="right-target" className="opacity-0" />
       
       <Handle type="target" position={Position.Bottom} id="bottom-target" className="opacity-0" />
       <Handle type="source" position={Position.Bottom} id="bottom-source" className="opacity-0" />
@@ -40,4 +41,4 @@ const SkillCategoryNode: React.FC<NodeProps> = ({ data, selected }) => {
   );
 };
 
-export default SkillCategoryNode;
+export default CategoryNode;

@@ -3,7 +3,6 @@ import { useNodesState, useEdgesState, type Node } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import ReactFlowCanvas from './sections/ReactFlowCanvas';
 import Sidebar from './sections/Sidebar';
-import SidebarToggleButton from './sections/SidebarToggleButton';
 import { portfolioEntries } from '../data/portfolioData';
 import { createInitialNodes, createInitialEdges } from '../data/graphConfig';
 
@@ -45,11 +44,6 @@ const Main: React.FC = () => {
           isOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
         />
-        
-        {/* Bouton pour rouvrir la sidebar */}
-        {selectedEntry && !isSidebarOpen && (
-          <SidebarToggleButton onClick={() => setIsSidebarOpen(true)} />
-        )}
       </div>
     </div>
   );

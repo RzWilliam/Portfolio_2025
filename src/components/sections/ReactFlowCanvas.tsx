@@ -14,7 +14,7 @@ import {
 import '@xyflow/react/dist/style.css';
 import CustomPortfolioNode from '../CustomPortfolioNode';
 import SkillNode from '../SkillNode';
-import SkillCategoryNode from '../SkillCategoryNode';
+import CategoryNode from '../CategoryNode';
 import ProjectNode from '../ProjectNode';
 import { portfolioEntries } from '../../data/portfolioData';
 
@@ -37,7 +37,7 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
   const nodeTypes = {
     customPortfolio: CustomPortfolioNode,
     skillNode: SkillNode,
-    skillCategoryNode: SkillCategoryNode,
+    categoryNode: CategoryNode,
     projectNode: ProjectNode,
   };
 
@@ -73,7 +73,7 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
             skill: '#3b82f6',
             experience: '#8b5cf6',
             contact: '#eab308',
-            'skill-category': '#3b82f6',
+            'category': '#3b82f6',
             'skill-item': '#60a5fa'
           };
           return colors[entry.category] || '#6b7280';

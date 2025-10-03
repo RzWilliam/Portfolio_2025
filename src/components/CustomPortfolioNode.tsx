@@ -5,7 +5,7 @@ interface CustomNodeData {
   label: string;
   title: string;
   description: string;
-  category: 'project' | 'skill' | 'experience' | 'contact' | 'skill-category' | 'skill-item';
+  category: 'project' | 'skill' | 'experience' | 'contact' | 'category' | 'skill-item';
   technologies?: string[];
   link?: string;
   isCenter?: boolean;

@@ -57,7 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
                     ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
                     : selectedEntry.category === 'contact'
                     ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30'
-                    : selectedEntry.category === 'skill-category'
+                    : selectedEntry.category === 'category'
                     ? 'bg-blue-400/20 text-blue-300 border border-blue-400/30'
                     : selectedEntry.category === 'skill-item'
                     ? 'bg-cyan-400/20 text-cyan-300 border border-cyan-400/30'

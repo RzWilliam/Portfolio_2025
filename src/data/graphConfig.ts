@@ -15,7 +15,7 @@ export const getConnectionPoints = (entry: PortfolioEntry) => {
   }
 
   // Catégories de skills - connexions depuis le centre et vers les skills
-  if (entry.category === 'skill-category') {
+  if (entry.category === 'category') {
     return {
       top: false,
       right: true, // Vers les skills individuels
@@ -52,8 +52,8 @@ export const createInitialNodes = (
     let nodeType = 'customPortfolio';
     if (entry.category === 'skill-item') {
       nodeType = 'skillNode';
-    } else if (entry.category === 'skill-category') {
-      nodeType = 'skillCategoryNode';
+    } else if (entry.category === 'category') {
+      nodeType = 'categoryNode';
     } else if (entry.category === 'project') {
       nodeType = 'projectNode';
     }
@@ -83,7 +83,7 @@ export const createInitialNodes = (
 // Création des edges initiaux
 export const createInitialEdges = (): Edge[] => {
   const edges: Edge[] = [
-    // Connexions du nœud central vers les 3 catégories de skills
+    // Connexions du nœud central vers les catégories
     {
       id: 'e1-frontend',
       source: '1',
@@ -110,6 +110,17 @@ export const createInitialEdges = (): Edge[] => {
       target: 'other-cat',
       sourceHandle: 'right-source',
       targetHandle: 'left-target',
+      type: 'bezier',
+      style: { stroke: '#fff', strokeWidth: 4 },
+      animated: true,
+    },
+
+    {
+      id: 'e1-projects',
+      source: '1',
+      target: 'projects-cat',
+      sourceHandle: 'left-source',
+      targetHandle: 'right-target',
       type: 'bezier',
       style: { stroke: '#fff', strokeWidth: 4 },
       animated: true,
