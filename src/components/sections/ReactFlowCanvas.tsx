@@ -24,6 +24,10 @@ interface ReactFlowCanvasProps {
   onNodesChange: OnNodesChange;
   onEdgesChange: OnEdgesChange;
   onNodeClick: (event: React.MouseEvent, node: Node) => void;
+  // callback to expose the reactflow instance (viewport controller)
+  onInit?: (instance: unknown) => void;
+  // allow passing an initial transform so parent can control initial viewport
+  initialTransform?: { x: number; y: number; zoom: number } | null;
 }
 
 const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
@@ -32,7 +36,13 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
   onNodesChange,
   onEdgesChange,
   onNodeClick,
+  onInit,
+  initialTransform = null,
 }) => {
+  // small effect to call onInit once ReactFlow mounts via a ref callback
+  const onLoad = (reactFlowInstance: unknown) => {
+    if (onInit) onInit(reactFlowInstance);
+  };
   // Types de composants custom
   const nodeTypes = {
     customPortfolio: CustomPortfolioNode,
@@ -55,10 +65,12 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
       onConnect={onConnect}
       onNodeClick={onNodeClick}
       nodeTypes={nodeTypes}
-      fitView
+      fitView={!initialTransform}
+      defaultViewport={initialTransform ?? undefined}
       nodesDraggable={true}
       nodesConnectable={true}
       elementsSelectable={true}
+      onInit={onLoad}
       attributionPosition="bottom-left"
       className="bg-transparent"
     >
