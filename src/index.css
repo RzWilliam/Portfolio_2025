@@ -84,10 +84,6 @@ body {
   border: none !important;
 }
 
-.react-flow__node-customPortfolio.selected {
-  box-shadow: 0 0 25px rgba(78, 205, 196, 0.9) !important;
-}
-
 /* Styles pour les handles custom - MASQUÉS */
 .react-flow__handle {
   opacity: 0 !important;

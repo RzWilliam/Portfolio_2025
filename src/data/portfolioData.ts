@@ -98,7 +98,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription: '',
     category: 'category',
     isClickable: false, // Catégorie non cliquable
-    position: { x: -750, y: 0 },
+    position: { x: -600, y: 0 },
   },
 
   // Skills Frontend (petits nœuds ronds avec logos)
@@ -243,7 +243,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription:
       'ManTrack est une plateforme web dédiée aux amateurs de manga, manhwa et manhua, qui permet de gérer sa bibliothèque personnelle, suivre sa progression de lecture et découvrir de nouvelles séries. L’utilisateur peut également ajouter son propre lien de lecture personnalisé pour chaque œuvre, rendant l’expérience totalement adaptée à ses habitudes.',
     category: 'project',
-    position: { x: -1000, y: -300 },
+    position: { x: -850, y: -275 },
     technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'Python'],
     link: 'https://www.mantrack.app/',
     logo: MantrackLogo,
@@ -256,7 +256,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription:
       'Bomberman Multiplayer est un jeu multijoueur en temps réel où les joueurs s’affrontent dans des arènes, posant des bombes pour détruire des obstacles et éliminer leurs adversaires.',
     category: 'project',
-    position: { x: -1100, y: -100 },
+    position: { x: -950, y: -100 },
     technologies: ['React', 'Socket.IO', 'Node.js', 'Phaser'],
     link: 'https://bomberman-multiplayer.vercel.app/',
     logo: BombermanLogo,
@@ -269,7 +269,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription:
       "Solar System Explorer est une application web interactive qui permet aux utilisateurs d'explorer le système solaire en 3D. En utilisant des technologies modernes comme React et Three.js, l'application offre une expérience immersive où les utilisateurs peuvent naviguer entre les planètes, découvrir des informations fascinantes sur chacune d'elles, et visualiser leurs orbites en temps réel. C'est un outil éducatif parfait pour les passionnés d'astronomie de tous âges.",
     category: 'project',
-    position: { x: -1100, y: 100 },
+    position: { x: -950, y: 100 },
     technologies: ['Three.js', 'React', 'TypeScript', 'Tailwind'],
     link: 'https://solar-system-sand-six.vercel.app/',
     logo: SolarSystemLogo,
@@ -282,7 +282,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription:
       'YGOdle est un jeu en ligne quotidien inspiré du principe de Wordle, mais adapté à l’univers Yu-Gi-Oh!. Chaque jour, les joueurs doivent deviner une carte Yu-Gi-Oh! en un nombre limité d’essais, en s’appuyant sur des indices comme l’attribut, le type, l’attaque, la défense ou encore l’archétype. Le projet combine base de données, logique de jeu et interface interactive, offrant une expérience à la fois ludique et compétitive pour les passionnés de Yu-Gi-Oh!.',
     category: 'project',
-    position: { x: -1000, y: 300 },
+    position: { x: -850, y: 275 },
     technologies: ['React', 'Supabase', 'TypeScript', 'Tailwind'],
     link: 'https://www.ygodle.net',
     logo: YGOdleLogo,
