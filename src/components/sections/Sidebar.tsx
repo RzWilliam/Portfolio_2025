@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import type { PortfolioEntry } from '../../data/portfolioData';
 import reactLogo from '../../assets/logos/react.webp';
 import typescriptLogo from '../../assets/logos/typescript.webp';
@@ -22,7 +23,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => {
-  if (!selectedEntry || !isOpen) return null;
+  if (!selectedEntry) return null;
 
   // Helper to render technology logos (returns JSX elements)
   const renderTechLogos = (technologies?: string[]) => {
@@ -67,97 +68,116 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
   };
 
   return (
-    <div className="fixed inset-0">
-      <div className="absolute inset-0 bg-black/40 z-40" onClick={onClose} />
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div className="fixed inset-0" initial="initial" animate="animate" exit="exit" variants={{}}>
+          <motion.div
+            className="absolute inset-0 bg-black/40 z-40"
+            onClick={onClose}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          />
 
-      <aside className="fixed right-0 top-0 h-full w-full sm:w-1/2 z-50">
-        <div
-          onClick={(e) => e.stopPropagation()}
-          className="sidebar-content w-full bg-black/40 backdrop-blur-xl sm:border-l sm:border-teal-400/40 p-6 overflow-y-auto h-full"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div className="space-y-6">
-            <div>
+          <motion.aside
+            className="fixed right-0 top-0 h-full w-full sm:w-1/2 z-50"
+            onClick={(e) => e.stopPropagation()}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.28 }}
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="sidebar-content w-full bg-black/40 backdrop-blur-xl sm:border-l sm:border-teal-400/40 p-6 overflow-y-auto h-full">
+              <div className="space-y-6">
+                <div>
 
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold text-white">{selectedEntry.title}</h2>
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={onClose}
-                    className="text-discovery-teal hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
-                    title="Fermer la sidebar"
-                  >
-                    ×
-                  </button>
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-2xl font-bold text-white">{selectedEntry.title}</h2>
+                    <div className="flex items-center gap-3">
+                      <motion.button
+                        onClick={onClose}
+                        className="text-discovery-teal transition-colors p-2 rounded-lg"
+                        title="Fermer la sidebar"
+                        whileHover={{ scale: 1.05, color: '#ffffff' }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        ×
+                      </motion.button>
+                    </div>
+                  </div>
+
+                  {selectedEntry.previewImage && (
+                    <a href={selectedEntry.link} target="_blank" rel="noopener noreferrer">
+                      <img
+                        src={selectedEntry.previewImage}
+                        alt={selectedEntry.title}
+                        className="w-full h-auto rounded-lg mb-4"
+                      />
+                    </a>
+                  )}
+
+                  {selectedEntry.category === 'project' && (
+                    <h3 className="text-xl font-bold text-white mb-2">{selectedEntry.title}, c'est quoi ?</h3>
+                  )}
+
+                  <p className="text-gray-300 leading-relaxed mb-6">
+                    {selectedEntry.detailedDescription}
+                  </p>
+
+                  {selectedEntry.technologies && (
+                    <div className="mb-6">
+                      <h4 className="text-discovery-teal font-semibold mb-3">Technologies :</h4>
+                      <div className="flex flex-wrap gap-2 items-center">
+                        {renderTechLogos(selectedEntry.technologies)}
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedEntry.link && (
+                    <motion.a
+                      href={selectedEntry.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 w-full justify-center"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Voir le projet
+                    </motion.a>
+                  )}
+
+                  {selectedEntry.category === 'contact' && (
+                    <div className="space-y-3">
+                      {selectedEntry.email && (
+                        <a href={`mailto:${selectedEntry.email}`} className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
+                          <span className="text-xl">📧</span>
+                          <span className="text-discovery-teal font-medium">{selectedEntry.email}</span>
+                        </a>
+                      )}
+                      {selectedEntry.github && (
+                        <a href={selectedEntry.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
+                          <span className="text-xl">💻</span>
+                          <span className="text-discovery-teal font-medium">GitHub</span>
+                        </a>
+                      )}
+                      {selectedEntry.linkedin && (
+                        <a href={selectedEntry.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
+                          <span className="text-xl">📇</span>
+                          <span className="text-discovery-teal font-medium">LinkedIn</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
-
-              {selectedEntry.previewImage && (
-                <a href={selectedEntry.link} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={selectedEntry.previewImage}
-                    alt={selectedEntry.title}
-                    className="w-full h-auto rounded-lg mb-4"
-                  />
-                </a>
-              )}
-
-              {selectedEntry.category === 'project' && (
-                <h3 className="text-xl font-bold text-white mb-2">{selectedEntry.title}, c'est quoi ?</h3>
-              )}
-
-              <p className="text-gray-300 leading-relaxed mb-6">
-                {selectedEntry.detailedDescription}
-              </p>
-
-              {selectedEntry.technologies && (
-                <div className="mb-6">
-                  <h4 className="text-discovery-teal font-semibold mb-3">Technologies :</h4>
-                  <div className="flex flex-wrap gap-2 items-center">
-                    {renderTechLogos(selectedEntry.technologies)}
-                  </div>
-                </div>
-              )}
-
-              {selectedEntry.link && (
-                <a
-                  href={selectedEntry.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 w-full justify-center"
-                >
-                  Voir le projet
-                </a>
-              )}
-
-              {selectedEntry.category === 'contact' && (
-                <div className="space-y-3">
-                  {selectedEntry.email && (
-                    <a href={`mailto:${selectedEntry.email}`} className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
-                      <span className="text-xl">📧</span>
-                      <span className="text-discovery-teal font-medium">{selectedEntry.email}</span>
-                    </a>
-                  )}
-                  {selectedEntry.github && (
-                    <a href={selectedEntry.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
-                      <span className="text-xl">💻</span>
-                      <span className="text-discovery-teal font-medium">GitHub</span>
-                    </a>
-                  )}
-                  {selectedEntry.linkedin && (
-                    <a href={selectedEntry.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
-                      <span className="text-xl">📇</span>
-                      <span className="text-discovery-teal font-medium">LinkedIn</span>
-                    </a>
-                  )}
-                </div>
-              )}
             </div>
-          </div>
-        </div>
-      </aside>
-    </div>
+          </motion.aside>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
