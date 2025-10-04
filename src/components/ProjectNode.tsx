@@ -24,7 +24,7 @@ const ProjectNode: React.FC<NodeProps> = ({ data, selected }) => {
       />
 
       <div
-        className={`p-4 rounded-2xl text-white shadow-2xl border border-gray-700/40 bg-gradient-to-br from-zinc-900 to-zinc-800 w-80 ${selected ? 'ring-2 ring-discovery-teal/60' : ''}`}
+        className={`p-4 rounded-2xl text-white shadow-2xl border border-gray-700/40 bg-gradient-to-br from-zinc-900 to-zinc-800 w-80 hover:scale-105 transition-transform ${selected ? 'ring-2 ring-discovery-teal/60' : ''}`}
       >
         <div className="flex flex-col items-start gap-3">
           <div className="flex items-start gap-3 w-full">
