@@ -65,6 +65,7 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
       onConnect={onConnect}
       onNodeClick={onNodeClick}
       nodeTypes={nodeTypes}
+      nodeOrigin={[0.5, 0.5]}
       fitView={!initialTransform}
       defaultViewport={initialTransform ?? undefined}
       nodesDraggable={true}
@@ -85,7 +86,7 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
             skill: '#3b82f6',
             experience: '#8b5cf6',
             contact: '#eab308',
-            'category': '#3b82f6',
+            category: '#3b82f6',
             'skill-item': '#60a5fa'
           };
           return colors[entry.category] || '#6b7280';

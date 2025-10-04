@@ -18,7 +18,7 @@ const CustomPortfolioNode: React.FC<NodeProps> = ({ data, selected }) => {
   return (
   // Use a wrapper that will be centered on the node position
   // add data-nodeid so we can query the DOM element for animation/positioning
-  <div data-nodeid={data?.id} style={{ transform: 'translate(-50%, -50%)' }} className="relative">
+  <div data-nodeid={data?.id} className="relative">
       {/* paired handles on each side with deterministic ids */}
       <Handle type="source" position={Position.Top} id="top-source" className="opacity-0" />
       <Handle type="target" position={Position.Top} id="top-target" className="opacity-0" />

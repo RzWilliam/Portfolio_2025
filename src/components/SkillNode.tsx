@@ -12,7 +12,7 @@ const SkillNode: React.FC<NodeProps> = ({ data, selected }) => {
   const nodeData = data as unknown as SkillNodeData;
 
   return (
-    <div style={{ transform: 'translate(-50%, -50%)' }} className="relative">
+    <div className="relative">
       {/* Handles pour les connexions */}
       <Handle type="target" position={Position.Top} id="top-target" className="opacity-0" />
       <Handle type="source" position={Position.Top} id="top-source" className="opacity-0" />
