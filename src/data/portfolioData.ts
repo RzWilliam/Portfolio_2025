@@ -111,6 +111,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'skill-item',
     skillCategory: 'frontend',
     logo: reactLogo,
+    isClickable: false,
     position: { x: 450, y: -200 },
   },
   {
