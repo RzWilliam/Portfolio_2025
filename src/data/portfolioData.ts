@@ -47,16 +47,29 @@ export interface PortfolioEntry {
   email?: string; // Pour le contact
   github?: string; // Pour le contact
   linkedin?: string; // Pour le contact
+  cv?: { label: string; link: string }; // Objet optionnel pour afficher un bouton vers le CV
 }
 
 export const portfolioEntries: PortfolioEntry[] = [
   // Nœud central
   {
     id: '1',
-    title: 'À Propos',
+    title: 'Bonjour,',
     description: 'Développeur Full-Stack passionné',
-    detailedDescription:
-      "Développeur Full-Stack avec 3+ années d'expérience en React, TypeScript, Node.js et bases de données. Passionné par l'innovation et les technologies modernes.",
+    detailedDescription: `👋 Je m'appelle William Rodriguez.
+  
+Je suis un jeune développeur web, fraîchement diplômé de l’IIM, passionné par tout ce qui touche à la création et à la technologie. Ce que j’aime dans ce métier, c’est la possibilité de donner vie à des idées, de passer d’un simple concept à quelque chose de concret, utile et agréable à utiliser. J’accorde une grande importance au sens du détail et à la cohérence, que ce soit dans le design, la logique ou l’expérience utilisateur.
+
+Dynamique et curieux, j’aime apprendre de nouvelles choses, tester, expérimenter et comprendre comment améliorer ce que je fais. Chaque projet est pour moi une occasion de progresser, de relever de nouveaux défis et de repousser un peu plus mes limites. J’aime travailler dans des environnements où règnent la collaboration, la bonne entente et la volonté d’avancer ensemble.
+
+En dehors du développement, je suis passionné par le football, les animes et les mangas. Ces univers m’inspirent au quotidien, que ce soit pour leur créativité, leur sens du rythme ou leur capacité à raconter des histoires. Ils m’aident à garder un esprit ouvert et à toujours trouver de nouvelles sources de motivation.
+
+Aujourd’hui, je cherche avant tout à évoluer dans un cadre qui me permettra de continuer à apprendre, à créer et à m’exprimer à travers des projets qui ont du sens.
+`,
+    cv: {
+      label: 'Voir mon CV',
+      link: '/CV_William_Rodriguez.pdf',
+    },
     category: 'experience',
     position: { x: 0, y: 0 },
   },
@@ -70,7 +83,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'category',
     skillCategory: 'frontend',
     isClickable: false, // Catégorie non cliquable
-    position: { x: 600, y: -100 },
+    position: { x: 500, y: -100 },
   },
   {
     id: 'backend-cat',
@@ -80,7 +93,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'category',
     skillCategory: 'backend',
     isClickable: false, // Catégorie non cliquable
-    position: { x: 750, y: 0 },
+    position: { x: 650, y: 0 },
   },
   {
     id: 'other-cat',
@@ -90,7 +103,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'category',
     skillCategory: 'other',
     isClickable: false, // Catégorie non cliquable
-    position: { x: 600, y: 100 },
+    position: { x: 500, y: 100 },
   },
 
   {
@@ -100,7 +113,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription: '',
     category: 'category',
     isClickable: false, // Catégorie non cliquable
-    position: { x: -600, y: 0 },
+    position: { x: -400, y: 0 },
   },
 
   // Contact category (nouveau)
@@ -125,7 +138,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'frontend',
     logo: reactLogo,
     isClickable: false,
-    position: { x: 450, y: -200 },
+    position: { x: 350, y: -200 },
   },
   {
     id: 'skill-typescript',
@@ -137,7 +150,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'frontend',
     logo: typescriptLogo,
     isClickable: false,
-    position: { x: 540, y: -300 },
+    position: { x: 440, y: -300 },
   },
   {
     id: 'skill-nextjs',
@@ -149,7 +162,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'frontend',
     logo: nextjsLogo,
     isClickable: false,
-    position: { x: 660, y: -300 },
+    position: { x: 560, y: -300 },
   },
   {
     id: 'skill-tailwind',
@@ -160,7 +173,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'frontend',
     logo: tailwindLogo,
     isClickable: false,
-    position: { x: 750, y: -200 },
+    position: { x: 650, y: -200 },
   },
 
   // Skills Backend (petits nœuds ronds avec logos)
@@ -174,7 +187,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'backend',
     logo: nodejsLogo,
     isClickable: false,
-    position: { x: 900, y: -100 },
+    position: { x: 800, y: -100 },
   },
   {
     id: 'skill-symfony',
@@ -186,7 +199,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'backend',
     logo: symfonyLogo,
     isClickable: false,
-    position: { x: 1000, y: -60 },
+    position: { x: 900, y: -60 },
   },
   {
     id: 'skill-socketio',
@@ -198,7 +211,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'backend',
     logo: socketioLogo,
     isClickable: false,
-    position: { x: 1000, y: 60 },
+    position: { x: 900, y: 60 },
   },
   {
     id: 'skill-php',
@@ -210,7 +223,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'backend',
     logo: phpLogo,
     isClickable: false,
-    position: { x: 900, y: 100 },
+    position: { x: 800, y: 100 },
   },
 
   // Skills Autres (petits nœuds ronds avec logos)
@@ -223,7 +236,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'other',
     logo: gitLogo,
     isClickable: false,
-    position: { x: 500, y: 200 },
+    position: { x: 400, y: 200 },
   },
   {
     id: 'skill-figma',
@@ -234,7 +247,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'other',
     logo: figmaLogo,
     isClickable: false,
-    position: { x: 600, y: 250 },
+    position: { x: 500, y: 250 },
   },
   {
     id: 'skill-supabase',
@@ -246,7 +259,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     skillCategory: 'other',
     logo: supabaseLogo,
     isClickable: false,
-    position: { x: 700, y: 200 },
+    position: { x: 600, y: 200 },
   },
   // Projects (cards)
   {
@@ -257,7 +270,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription:
       'ManTrack est une plateforme web dédiée aux amateurs de manga, manhwa et manhua, qui permet de gérer sa bibliothèque personnelle, suivre sa progression de lecture et découvrir de nouvelles séries. L’utilisateur peut également ajouter son propre lien de lecture personnalisé pour chaque œuvre, rendant l’expérience totalement adaptée à ses habitudes.',
     category: 'project',
-    position: { x: -850, y: -275 },
+    position: { x: -650, y: -275 },
     technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'Python'],
     link: 'https://www.mantrack.app/',
     logo: MantrackLogo,
@@ -270,8 +283,9 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription:
       'Bomberman Multiplayer est un jeu multijoueur en temps réel où les joueurs s’affrontent dans des arènes, posant des bombes pour détruire des obstacles et éliminer leurs adversaires.',
     category: 'project',
-    position: { x: -950, y: -100 },
+    position: { x: -750, y: -100 },
     technologies: ['React', 'Socket.IO', 'Node.js', 'Phaser'],
+    repository: 'https://github.com/RzWilliam/bomberman-multiplayer',
     link: 'https://bomberman-multiplayer.vercel.app/',
     logo: BombermanLogo,
     previewImage: BombermanPreview,
@@ -283,20 +297,21 @@ export const portfolioEntries: PortfolioEntry[] = [
     detailedDescription:
       "Solar System Explorer est une application web interactive qui permet aux utilisateurs d'explorer le système solaire en 3D. En utilisant des technologies modernes comme React et Three.js, l'application offre une expérience immersive où les utilisateurs peuvent naviguer entre les planètes, découvrir des informations fascinantes sur chacune d'elles, et visualiser leurs orbites en temps réel. C'est un outil éducatif parfait pour les passionnés d'astronomie de tous âges.",
     category: 'project',
-    position: { x: -950, y: 100 },
+    position: { x: -750, y: 100 },
     technologies: ['Three.js', 'React', 'TypeScript', 'Tailwind'],
+    repository: 'https://github.com/RzWilliam/solar-system',
     link: 'https://solar-system-sand-six.vercel.app/',
     logo: SolarSystemLogo,
     previewImage: SolarSystemPreview,
   },
-    {
+  {
     id: 'project-ygodle',
     title: 'YGOdle',
     description: 'Jeu quotidien de devinette de cartes Yu-Gi-Oh!',
     detailedDescription:
       'YGOdle est un jeu en ligne quotidien inspiré du principe de Wordle, mais adapté à l’univers Yu-Gi-Oh!. Chaque jour, les joueurs doivent deviner une carte Yu-Gi-Oh! en un nombre limité d’essais, en s’appuyant sur des indices comme l’attribut, le type, l’attaque, la défense ou encore l’archétype. Le projet combine base de données, logique de jeu et interface interactive, offrant une expérience à la fois ludique et compétitive pour les passionnés de Yu-Gi-Oh!.',
     category: 'project',
-    position: { x: -850, y: 275 },
+    position: { x: -650, y: 275 },
     technologies: ['React', 'Supabase', 'TypeScript', 'Tailwind'],
     link: 'https://www.ygodle.net',
     logo: YGOdleLogo,
@@ -309,7 +324,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     description: '',
     detailedDescription: '',
     category: 'contact',
-    position: { x: 0, y: 560 },
+    position: { x: 0, y: 520 },
     email: 'williamrodriguez0621@gmail.com',
     isClickable: true,
   },
@@ -319,7 +334,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     description: '',
     detailedDescription: '',
     category: 'contact',
-    position: { x: -120, y: 460 },
+    position: { x: -120, y: 420 },
     github: 'https://github.com/RzWilliam',
     isClickable: true,
     logo: githubLogo,
@@ -330,7 +345,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     description: '',
     detailedDescription: '',
     category: 'contact',
-    position: { x: 120, y: 460 },
+    position: { x: 120, y: 420 },
     linkedin: 'https://www.linkedin.com/in/william-rodriguez-6588b1207',
     isClickable: true,
     logo: linkedinLogo,

@@ -10,6 +10,7 @@ import symfonyLogo from '../../assets/logos/symfony.webp';
 import socketioLogo from '../../assets/logos/socketio.webp';
 import phpLogo from '../../assets/logos/php.webp';
 import gitLogo from '../../assets/logos/git.webp';
+import githubLogo from '../../assets/logos/github.svg';
 import figmaLogo from '../../assets/logos/figma.webp';
 import supabaseLogo from '../../assets/logos/supabase.webp';
 import pythonLogo from '../../assets/logos/python.webp';
@@ -90,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
             role="dialog"
             aria-modal="true"
           >
-            <div className="sidebar-content w-full bg-black/40 backdrop-blur-xl sm:border-l sm:border-teal-400/40 p-6 overflow-y-auto h-full">
+            <div className="sidebar-content w-full bg-black/40 backdrop-blur-xl sm:border-l sm:border-teal-400/40 p-6 overflow-y-auto h-full flex flex-col justify-between">
               <div className="space-y-6">
                 <div>
 
@@ -123,7 +124,7 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
                     <h3 className="text-xl font-bold text-white mb-2">{selectedEntry.title}, c'est quoi ?</h3>
                   )}
 
-                  <p className="text-gray-300 leading-relaxed mb-6">
+                  <p className="text-gray-300 leading-relaxed mb-6 whitespace-pre-line">
                     {selectedEntry.detailedDescription}
                   </p>
 
@@ -135,19 +136,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
                       </div>
                     </div>
                   )}
-
-                  {selectedEntry.link && (
-                    <motion.a
-                      href={selectedEntry.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 w-full justify-center"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      Voir le projet
-                    </motion.a>
-                  )}
+                  
+                  {/* project preview / description area remains here; action buttons moved to footer */}
 
                   {selectedEntry.category === 'contact' && (
                     <div className="space-y-3">
@@ -165,13 +155,55 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
                       )}
                       {selectedEntry.linkedin && (
                         <a href={selectedEntry.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
-                          <span className="text-xl">📇</span>
+                          <span className="text-xl">�</span>
                           <span className="text-discovery-teal font-medium">LinkedIn</span>
                         </a>
                       )}
                     </div>
                   )}
                 </div>
+              </div>
+
+              {/* Footer: action buttons pinned to bottom via flex layout */}
+              <div className="pt-4">
+                {selectedEntry.category === 'project' && selectedEntry.repository && (
+                  <motion.a
+                    href={selectedEntry.repository}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-black text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-101 w-full justify-center mb-3 border border-gray-700"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <img src={githubLogo} alt="GitHub" className="w-5 h-5" />
+                    <span>Voir le code</span>
+                  </motion.a>
+                )}
+                {selectedEntry.category === 'project' && selectedEntry.link && (
+                  <motion.a
+                    href={selectedEntry.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black font-medium rounded-lg transition-all duration-300 transform hover:scale-101 w-full justify-center mb-3"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Voir le projet
+                  </motion.a>
+                )}
+
+                {selectedEntry.id === '1' && selectedEntry.cv && (
+                  <motion.a
+                    href={selectedEntry.cv.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black font-medium rounded-lg transition-all duration-300 transform hover:scale-101 w-full justify-center"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {selectedEntry.cv.label}
+                  </motion.a>
+                )}
               </div>
             </div>
           </motion.aside>

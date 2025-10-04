@@ -71,6 +71,7 @@ export const createInitialNodes = (
         category: entry.category,
         technologies: entry.technologies,
         link: entry.link,
+        cv: entry.cv,
         logo: entry.logo,
         isCenter: entry.id === '1',
         isClickable: entry.isClickable !== false, // Par défaut true

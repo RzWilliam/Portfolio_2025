@@ -10,6 +10,7 @@ interface CustomNodeData {
   technologies?: string[];
   link?: string;
   isCenter?: boolean;
+  cv?: { label: string; link: string };
 }
 
 const CustomPortfolioNode: React.FC<NodeProps> = ({ data, selected }) => {
