@@ -9,6 +9,8 @@ import phpLogo from '../assets/logos/php.webp';
 import gitLogo from '../assets/logos/git.webp';
 import figmaLogo from '../assets/logos/figma.webp';
 import supabaseLogo from '../assets/logos/supabase.webp';
+import githubLogo from '../assets/logos/github.svg';
+import linkedinLogo from '../assets/logos/linkedin.webp';
 
 import MantrackLogo from '../assets/logos/mantrack.webp';
 import MantrackPreview from '../assets/projects/mantrack.webp';
@@ -99,6 +101,17 @@ export const portfolioEntries: PortfolioEntry[] = [
     category: 'category',
     isClickable: false, // Catégorie non cliquable
     position: { x: -600, y: 0 },
+  },
+
+  // Contact category (nouveau)
+  {
+    id: 'contact-cat',
+    title: 'Contact',
+    description: '',
+    detailedDescription: '',
+    category: 'category',
+    isClickable: false,
+    position: { x: 0, y: 320 },
   },
 
   // Skills Frontend (petits nœuds ronds avec logos)
@@ -288,5 +301,38 @@ export const portfolioEntries: PortfolioEntry[] = [
     link: 'https://www.ygodle.net',
     logo: YGOdleLogo,
     previewImage: YGOdlePreview,
+  },
+  // Contacts (liés à la catégorie contact)
+  {
+    id: 'contact-email',
+    title: 'Email',
+    description: '',
+    detailedDescription: '',
+    category: 'contact',
+    position: { x: 0, y: 560 },
+    email: 'williamrodriguez0621@gmail.com',
+    isClickable: true,
+  },
+  {
+    id: 'contact-github',
+    title: 'GitHub',
+    description: '',
+    detailedDescription: '',
+    category: 'contact',
+    position: { x: -120, y: 460 },
+    github: 'https://github.com/RzWilliam',
+    isClickable: true,
+    logo: githubLogo,
+  },
+  {
+    id: 'contact-linkedin',
+    title: 'LinkedIn',
+    description: '',
+    detailedDescription: '',
+    category: 'contact',
+    position: { x: 120, y: 460 },
+    linkedin: 'https://www.linkedin.com/in/william-rodriguez-6588b1207',
+    isClickable: true,
+    logo: linkedinLogo,
   },
 ];

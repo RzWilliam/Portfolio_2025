@@ -16,6 +16,7 @@ import CustomPortfolioNode from '../CustomPortfolioNode';
 import SkillNode from '../SkillNode';
 import CategoryNode from '../CategoryNode';
 import ProjectNode from '../ProjectNode';
+import ContactNode from '../ContactNode';
 import { portfolioEntries } from '../../data/portfolioData';
 
 interface ReactFlowCanvasProps {
@@ -49,6 +50,7 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
     skillNode: SkillNode,
     categoryNode: CategoryNode,
     projectNode: ProjectNode,
+    contactNode: ContactNode,
   };
 
   const onConnect = useCallback(

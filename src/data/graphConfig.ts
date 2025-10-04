@@ -56,6 +56,8 @@ export const createInitialNodes = (
       nodeType = 'categoryNode';
     } else if (entry.category === 'project') {
       nodeType = 'projectNode';
+    } else if (entry.category === 'contact') {
+      nodeType = 'contactNode';
     }
 
     return {
@@ -73,6 +75,9 @@ export const createInitialNodes = (
         isCenter: entry.id === '1',
         isClickable: entry.isClickable !== false, // Par défaut true
         connectionPoints: getConnectionPoints(entry),
+        email: entry.email,
+        github: entry.github,
+        linkedin: entry.linkedin,
       },
       draggable: true,
       selectable: true,
@@ -121,6 +126,17 @@ export const createInitialEdges = (): Edge[] => {
       target: 'projects-cat',
       sourceHandle: 'left-source',
       targetHandle: 'right-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 4 },
+      animated: true,
+    },
+    // Connexion vers la catégorie Contact
+    {
+      id: 'e1-contact',
+      source: '1',
+      target: 'contact-cat',
+      sourceHandle: 'bottom-source',
+      targetHandle: 'top-target',
       type: 'default',
       style: { stroke: '#fff', strokeWidth: 4 },
       animated: true,
@@ -282,7 +298,38 @@ export const createInitialEdges = (): Edge[] => {
       type: 'default',
       style: { stroke: '#fff', strokeWidth: 2 },
       animated: false,
-    }
+    },
+    // Connexions catégorie Contact -> contacts
+    {
+      id: 'ecat-contact-email',
+      source: 'contact-cat',
+      target: 'contact-email',
+      sourceHandle: 'bottom-source',
+      targetHandle: 'top-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
+    {
+      id: 'ecat-contact-github',
+      source: 'contact-cat',
+      target: 'contact-github',
+      sourceHandle: 'bottom-source',
+      targetHandle: 'top-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
+    {
+      id: 'ecat-contact-linkedin',
+      source: 'contact-cat',
+      target: 'contact-linkedin',
+      sourceHandle: 'bottom-source',
+      targetHandle: 'top-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
   ];
 
   return edges;

@@ -76,10 +76,14 @@ const Main: React.FC = () => {
   const onNodeClick = useCallback((_event: React.MouseEvent, node: Node) => {
     const entry = portfolioEntries.find(e => e.id === node.id);
     // Ne pas ouvrir la sidebar si le node n'est pas cliquable
-    if (entry && entry.isClickable !== false) {
-      setSelectedEntry(entry);
-      setIsSidebarOpen(true);
-    }
+    if (!entry || entry.isClickable === false) return;
+
+    // For contact nodes we let the node-local handlers manage click/copy behavior
+    if (entry.category === 'contact') return;
+
+    setSelectedEntry(entry);
+    setIsSidebarOpen(true);
+
   }, []);
 
   return (
@@ -97,7 +101,7 @@ const Main: React.FC = () => {
             />
             {/* Loader overlays everything until finished */}
             {isLoading && (
-              <Loader duration={2000} logoSrc={LogoSrc} onFinish={handleLoaderFinish} logoRef={logoRef} fade={loaderFade} />
+              <Loader duration={1500} logoSrc={LogoSrc} onFinish={handleLoaderFinish} logoRef={logoRef} fade={loaderFade} />
             )}
         </div>
 
