@@ -16,6 +16,40 @@ interface CustomNodeData {
 const CustomPortfolioNode: React.FC<NodeProps> = ({ data, selected }) => {
   const nodeData = data as unknown as CustomNodeData;
 
+  const getViewportZoom = () => {
+    try {
+      // 1) prefer provided value on data
+      const provided = 1.3;
+      if (typeof provided === 'number' && provided > 0) return provided;
+
+      // 2) fallback to DOM inspection
+      const viewport = document.querySelector('.react-flow__viewport') as HTMLElement | null;
+      if (!viewport) return 1;
+      const transform = getComputedStyle(viewport).transform;
+      if (!transform || transform === 'none') return 1;
+
+      // transform is like 'matrix(a, b, c, d, tx, ty)' or 'matrix3d(...)'
+      const matches = transform.match(/matrix\(([^)]+)\)/);
+      if (matches && matches[1]) {
+        const parts = matches[1].split(',').map(p => parseFloat(p.trim()));
+        // scaleX = a
+        const a = parts[0];
+        if (typeof a === 'number' && !Number.isNaN(a) && a > 0) return a;
+      }
+      // try matrix3d
+      const matches3 = transform.match(/matrix3d\(([^)]+)\)/);
+      if (matches3 && matches3[1]) {
+        const parts = matches3[1].split(',').map(p => parseFloat(p.trim()));
+        // scaleX is at index 0
+        const a = parts[0];
+        if (typeof a === 'number' && !Number.isNaN(a) && a > 0) return a;
+      }
+    } catch {
+      // ignore and fallback to 1
+    }
+    return 1;
+  };
+
   return (
   // Use a wrapper that will be centered on the node position
   // add data-nodeid so we can query the DOM element for animation/positioning
@@ -35,9 +69,21 @@ const CustomPortfolioNode: React.FC<NodeProps> = ({ data, selected }) => {
 
       {/* If this is the central node, render a circular logo instead of the card */}
       {nodeData.isCenter ? (
-        <div className={`flex items-center justify-center w-40 h-40 rounded-full bg-black border border-gray-700/50 shadow-lg cursor-pointer ${selected ? 'ring-4 ring-gray-500/40' : ''}`}>
-          <img src={LogoWhite} alt="Logo portfolio" className="w-28 h-28 object-contain" />
-        </div>
+        (() => {
+          const zoom = getViewportZoom();
+          // counter-scale so visible size = cssSize / zoom
+          const scale = 1 / zoom;
+          return (
+            <div className={`flex items-center justify-center w-40 h-40 rounded-full bg-black border border-gray-700/50 shadow-lg cursor-pointer ${selected ? 'ring-4 ring-gray-500/40' : ''}`}>
+              <img
+                src={LogoWhite}
+                alt="Logo portfolio"
+                className="w-36 h-36 object-contain"
+                style={{ transform: `scale(${scale})`, transformOrigin: 'center' }}
+              />
+            </div>
+          );
+        })()
       ) : (
         <div 
           className={`p-4 rounded-xl text-white shadow-xl border border-gray-700/50 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl w-72 ${selected ? 'ring-2 ring-gray-500' : ''}`}

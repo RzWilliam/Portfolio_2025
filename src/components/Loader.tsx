@@ -50,7 +50,7 @@ const Loader: React.FC<LoaderProps> = ({
           ref={logoRef}
           src={logoSrc}
           alt="logo"
-          className="w-[145.60px] h-[145.60px] object-contain will-change-transform"
+          className={`w-36 h-36 object-contain will-change-transform`}
           style={{ transformOrigin: 'center center' }}
         />
 
