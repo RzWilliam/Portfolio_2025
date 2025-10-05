@@ -10,7 +10,13 @@ interface LoaderProps {
   fade?: boolean;
 }
 
-const Loader: React.FC<LoaderProps> = ({ duration = 2000, logoSrc, onFinish, logoRef, fade = false }) => {
+const Loader: React.FC<LoaderProps> = ({
+  duration = 1000,
+  logoSrc,
+  onFinish,
+  logoRef,
+  fade = false,
+}) => {
   const progressRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -29,24 +35,30 @@ const Loader: React.FC<LoaderProps> = ({ duration = 2000, logoSrc, onFinish, log
   }, [duration, onFinish]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black"
-      style={{ opacity: fade ? 0 : 1, transition: 'opacity 700ms ease' }}
-    >
-      <div className="flex flex-col items-center gap-6">
+    <>
+      {/* Cercle noir en arrière-plan */}
+      <div
+        className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-50 transition-[width,height] duration-[2000ms] ease-in-out bg-black ${
+          fade ? 'w-40 h-40' : 'w-[3000px] h-[3000px]'
+        }`}
+        style={{ willChange: 'width, height' }}
+      />
+
+      {/* Contenu (logo + barre) par-dessus */}
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[51] flex flex-col items-center gap-6">
         <img
           ref={logoRef}
           src={logoSrc}
           alt="logo"
-          className="w-36 h-36 object-contain will-change-transform"
+          className="w-[145.60px] h-[145.60px] object-contain will-change-transform"
           style={{ transformOrigin: 'center center' }}
         />
 
-        <div className="w-64 h-2 bg-white/10 rounded overflow-hidden">
+        <div className={`absolute -bottom-4 w-64 h-2 bg-white/10 rounded overflow-hidden ${fade ? 'hidden transition-opacity duration-500' : ''}`}>
           <div ref={progressRef} className="h-full bg-white w-0" />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

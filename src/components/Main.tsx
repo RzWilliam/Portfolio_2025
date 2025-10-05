@@ -49,7 +49,7 @@ const Main: React.FC = () => {
           // map world (node) coordinates to screen center:
           // screen = world * zoom + x  =>  x = screenCenter - world * zoom
           const tx = window.innerWidth / 2 - nodePos.x * targetZoom;
-          const ty = window.innerHeight / 2 - nodePos.y * targetZoom - 15;
+          const ty = window.innerHeight / 2 - nodePos.y * targetZoom;
           if (rf.setViewport) {
             // some implementations accept a second options param for animation; omit it for immediate
             rf.setViewport({ x: tx, y: ty, zoom: targetZoom });
@@ -64,7 +64,7 @@ const Main: React.FC = () => {
 
     // 2) trigger loader fade and hide after fade duration
     setLoaderFade(true);
-    const fadeDuration = 700;
+    const fadeDuration = 2000;
     window.setTimeout(() => setIsLoading(false), fadeDuration + 50);
   };
 
@@ -101,7 +101,7 @@ const Main: React.FC = () => {
             />
             {/* Loader overlays everything until finished */}
             {isLoading && (
-              <Loader duration={1500} logoSrc={LogoSrc} onFinish={handleLoaderFinish} logoRef={logoRef} fade={loaderFade} />
+              <Loader duration={1000} logoSrc={LogoSrc} onFinish={handleLoaderFinish} logoRef={logoRef} fade={loaderFade} />
             )}
         </div>
 
