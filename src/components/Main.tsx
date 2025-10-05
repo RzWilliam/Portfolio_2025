@@ -48,7 +48,7 @@ const Main: React.FC = () => {
           const targetZoom = 1.3;
           // map world (node) coordinates to screen center:
           // screen = world * zoom + x  =>  x = screenCenter - world * zoom
-          const tx = window.innerWidth / 2 - nodePos.x * targetZoom + 0.3;
+          const tx = window.innerWidth / 2 - nodePos.x * targetZoom - 0.1;
           const ty = window.innerHeight / 2 - nodePos.y * targetZoom + 0.3;
           if (rf.setViewport) {
             // some implementations accept a second options param for animation; omit it for immediate
