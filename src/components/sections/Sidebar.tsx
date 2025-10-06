@@ -66,20 +66,29 @@ const Sidebar: React.FC<SidebarProps> = ({
     return technologies.map((tech, idx) => {
       const logo = techLogos[tech];
       return logo ? (
-        <img
-          key={idx}
-          src={logo}
-          alt={tech}
-          title={tech}
-          className="w-16 h-auto object-contain p-1"
-        />
+        <div key={idx} className="flex flex-col items-center w-20 p-1">
+          <div className="h-12 flex items-center justify-center">
+            <img
+              src={logo}
+              alt={tech}
+              title={tech}
+              className="h-12 w-auto object-contain"
+            />
+          </div>
+          <span className="text-xs text-gray-300 mt-1 text-center break-words">
+            {tech}
+          </span>
+        </div>
       ) : (
-        <span
-          key={idx}
-          className="px-3 py-1 bg-discovery-teal/20 text-discovery-teal border border-discovery-teal/30 rounded-full text-sm font-medium"
-        >
-          {tech}
-        </span>
+        <div key={idx} className="flex flex-col items-center w-20 p-1">
+          <div className="h-12 flex items-center justify-center">
+            <span
+              className="h-10 inline-flex items-center justify-center px-3 bg-discovery-teal/20 text-discovery-teal border border-discovery-teal/30 rounded-full text-sm font-medium"
+            >
+              {tech}
+            </span>
+          </div>
+        </div>
       );
     });
   };
