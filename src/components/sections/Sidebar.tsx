@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { PortfolioEntry } from '../../data/portfolioData';
 import reactLogo from '../../assets/logos/react.webp';
@@ -28,6 +28,18 @@ const Sidebar: React.FC<SidebarProps> = ({
   isOpen,
   onClose,
 }) => {
+  // Preload preview image when sidebar opens to reduce layout shift
+  useEffect(() => {
+    if (!isOpen || !selectedEntry?.previewImage) return;
+    const img = new Image();
+    img.src = selectedEntry.previewImage;
+    // no-op handlers; browser will cache the image
+    return () => {
+      // help GC
+      img.src = '';
+    };
+  }, [isOpen, selectedEntry?.previewImage]);
+
   if (!selectedEntry) return null;
 
   // Helper to render technology logos (returns JSX elements)
@@ -127,21 +139,35 @@ const Sidebar: React.FC<SidebarProps> = ({
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img
-                        src={selectedEntry.previewImage}
-                        alt={selectedEntry.title}
-                        className="w-full h-auto rounded-lg mb-4"
-                      />
+                      {/* Image wrapper reserves space to avoid layout shift when image loads */}
+                      <div
+                        className="w-full rounded-lg mb-4 bg-white/5 overflow-hidden"
+                        style={{
+                          // reserve a reasonable preview height to avoid content jump
+                          minHeight: 180,
+                        }}
+                      >
+                        <img
+                          src={selectedEntry.previewImage}
+                          alt={selectedEntry.title}
+                          className="w-full h-full object-cover"
+                          style={{ display: 'block' }}
+                        />
+                      </div>
                     </a>
                   )}
 
                   {selectedEntry.category === 'experience' && (
                     <>
-                      <img
-                        src={selectedEntry.logo}
-                        alt={selectedEntry.title}
-                        className="w-full h-auto max-h-[150px] object-contain rounded-lg mb-4"
-                      />
+                      {/* Reserve logo area to prevent layout shifts */}
+                      <div className="w-full rounded-lg mb-4 flex items-center justify-center bg-white/5 p-3" style={{ minHeight: 80 }}>
+                        <img
+                          src={selectedEntry.logo}
+                          alt={selectedEntry.title}
+                          className="max-h-[150px] object-contain"
+                          style={{ display: 'block' }}
+                        />
+                      </div>
 
                       <div className="mb-4">
                         <h4 className="text-discovery-teal font-semibold mb-3">Détails</h4>
