@@ -23,7 +23,11 @@ interface SidebarProps {
   onClose: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+  selectedEntry,
+  isOpen,
+  onClose,
+}) => {
   if (!selectedEntry) return null;
 
   // Helper to render technology logos (returns JSX elements)
@@ -31,19 +35,19 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
     if (!technologies || technologies.length === 0) return null;
 
     const techLogos: Record<string, string> = {
-      'React': reactLogo,
-      'TypeScript': typescriptLogo,
+      React: reactLogo,
+      TypeScript: typescriptLogo,
       'Next.js': nextjsLogo,
-      'Tailwind': tailwindLogo,
+      Tailwind: tailwindLogo,
       'Node.js': nodejsLogo,
-      'Symfony': symfonyLogo,
+      Symfony: symfonyLogo,
       'Socket.IO': socketioLogo,
-      'PHP': phpLogo,
-      'Git': gitLogo,
-      'Figma': figmaLogo,
-      'Supabase': supabaseLogo,
-      'Python': pythonLogo,
-      'Phaser': phaserLogo,
+      PHP: phpLogo,
+      Git: gitLogo,
+      Figma: figmaLogo,
+      Supabase: supabaseLogo,
+      Python: pythonLogo,
+      Phaser: phaserLogo,
       'Three.js': threejsLogo,
     };
 
@@ -71,7 +75,13 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div className="fixed inset-0" initial="initial" animate="animate" exit="exit" variants={{}}>
+        <motion.div
+          className="fixed inset-0"
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={{}}
+        >
           <motion.div
             className="absolute inset-0 bg-black/40 z-40"
             onClick={onClose}
@@ -94,9 +104,10 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
             <div className="sidebar-content w-full bg-black/40 backdrop-blur-xl sm:border-l sm:border-teal-400/40 p-6 overflow-y-auto h-full flex flex-col justify-between">
               <div className="space-y-6">
                 <div>
-
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-2xl font-bold text-white">{selectedEntry.title}</h2>
+                    <h2 className="text-2xl font-bold text-white">
+                      {selectedEntry.title}
+                    </h2>
                     <div className="flex items-center gap-3">
                       <motion.button
                         onClick={onClose}
@@ -111,7 +122,11 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
                   </div>
 
                   {selectedEntry.previewImage && (
-                    <a href={selectedEntry.link} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={selectedEntry.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <img
                         src={selectedEntry.previewImage}
                         alt={selectedEntry.title}
@@ -120,8 +135,56 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
                     </a>
                   )}
 
+                  {selectedEntry.category === 'experience' && (
+                    <>
+                      <img
+                        src={selectedEntry.logo}
+                        alt={selectedEntry.title}
+                        className="w-full h-auto max-h-[150px] object-contain rounded-lg mb-4"
+                      />
+
+                      <div className="mb-4">
+                        <h4 className="text-discovery-teal font-semibold mb-3">Détails</h4>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          <div className="flex items-start gap-3 p-3 bg-white/5 border border-white/6 rounded-lg">
+                            <span className="text-2xl">👨‍💼</span>
+                            <div>
+                              <div className="text-sm text-gray-300">Poste</div>
+                              <div className="text-white font-medium">
+                                {selectedEntry.poste ?? 'Non renseigné'}
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start gap-3 p-3 bg-white/5 border border-white/6 rounded-lg">
+                            <span className="text-2xl">📃</span>
+                            <div>
+                              <div className="text-sm text-gray-300">Contrat</div>
+                              <div className="text-white font-medium">
+                                {selectedEntry.typeExpérience ?? '—'}
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start gap-3 p-3 bg-white/5 border border-white/6 rounded-lg">
+                            <span className="text-2xl">⏳</span>
+                            <div>
+                              <div className="text-sm text-gray-300">Durée</div>
+                              <div className="text-white font-medium">
+                                {selectedEntry.duree ?? '—'}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
                   {selectedEntry.category === 'project' && (
-                    <h3 className="text-xl font-bold text-white mb-2">{selectedEntry.title}, c'est quoi ?</h3>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {selectedEntry.title}, c'est quoi ?
+                    </h3>
                   )}
 
                   <p className="text-gray-300 leading-relaxed mb-6 whitespace-pre-line">
@@ -130,33 +193,54 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
 
                   {selectedEntry.technologies && (
                     <div className="mb-6">
-                      <h4 className="text-discovery-teal font-semibold mb-3">Technologies :</h4>
+                      <h4 className="text-discovery-teal font-semibold mb-3">
+                        Technologies :
+                      </h4>
                       <div className="flex flex-wrap gap-2 items-center">
                         {renderTechLogos(selectedEntry.technologies)}
                       </div>
                     </div>
                   )}
-                  
+
                   {/* project preview / description area remains here; action buttons moved to footer */}
 
                   {selectedEntry.category === 'contact' && (
                     <div className="space-y-3">
                       {selectedEntry.email && (
-                        <a href={`mailto:${selectedEntry.email}`} className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
+                        <a
+                          href={`mailto:${selectedEntry.email}`}
+                          className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors"
+                        >
                           <span className="text-xl">📧</span>
-                          <span className="text-discovery-teal font-medium">{selectedEntry.email}</span>
+                          <span className="text-discovery-teal font-medium">
+                            {selectedEntry.email}
+                          </span>
                         </a>
                       )}
                       {selectedEntry.github && (
-                        <a href={selectedEntry.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
+                        <a
+                          href={selectedEntry.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors"
+                        >
                           <span className="text-xl">💻</span>
-                          <span className="text-discovery-teal font-medium">GitHub</span>
+                          <span className="text-discovery-teal font-medium">
+                            GitHub
+                          </span>
                         </a>
                       )}
                       {selectedEntry.linkedin && (
-                        <a href={selectedEntry.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors">
+                        <a
+                          href={selectedEntry.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3 p-3 bg-discovery-teal/10 border border-discovery-teal/30 rounded-lg hover:bg-discovery-teal/20 transition-colors"
+                        >
                           <span className="text-xl">�</span>
-                          <span className="text-discovery-teal font-medium">LinkedIn</span>
+                          <span className="text-discovery-teal font-medium">
+                            LinkedIn
+                          </span>
                         </a>
                       )}
                     </div>
@@ -166,19 +250,20 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedEntry, isOpen, onClose }) => 
 
               {/* Footer: action buttons pinned to bottom via flex layout */}
               <div className="pt-4">
-                {selectedEntry.category === 'project' && selectedEntry.repository && (
-                  <motion.a
-                    href={selectedEntry.repository}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-4 py-2 bg-black text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-101 w-full justify-center mb-3 border border-gray-700"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <img src={githubLogo} alt="GitHub" className="w-5 h-5" />
-                    <span>Voir le code</span>
-                  </motion.a>
-                )}
+                {selectedEntry.category === 'project' &&
+                  selectedEntry.repository && (
+                    <motion.a
+                      href={selectedEntry.repository}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 px-4 py-2 bg-black text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-101 w-full justify-center mb-3 border border-gray-700"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <img src={githubLogo} alt="GitHub" className="w-5 h-5" />
+                      <span>Voir le code</span>
+                    </motion.a>
+                  )}
                 {selectedEntry.category === 'project' && selectedEntry.link && (
                   <motion.a
                     href={selectedEntry.link}
