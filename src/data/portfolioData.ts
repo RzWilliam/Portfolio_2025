@@ -12,6 +12,10 @@ import supabaseLogo from '../assets/logos/supabase.webp';
 import githubLogo from '../assets/logos/github.svg';
 import linkedinLogo from '../assets/logos/linkedin.webp';
 
+import forinovLogo from '../assets/logos/forinov.webp';
+import lamuseeLogo from '../assets/logos/lamusee.webp';
+import vinciConstructionLogo from '../assets/logos/vinci-construction.webp';
+
 import MantrackLogo from '../assets/logos/mantrack.webp';
 import MantrackPreview from '../assets/projects/mantrack.webp';
 
@@ -35,7 +39,8 @@ export interface PortfolioEntry {
     | 'experience'
     | 'contact'
     | 'category'
-    | 'skill-item';
+    | 'skill-item'
+    | 'autre';
   position: { x: number; y: number }; // Position du nœud (obligatoire)
   technologies?: string[];
   link?: string;
@@ -48,6 +53,15 @@ export interface PortfolioEntry {
   github?: string; // Pour le contact
   linkedin?: string; // Pour le contact
   cv?: { label: string; link: string }; // Objet optionnel pour afficher un bouton vers le CV
+  poste?: string; // Pour les expériences, le poste occupé
+  typeExpérience?:
+    | 'Stage'
+    | 'Alternance'
+    | 'Emploi'
+    | 'Freelance'
+    | 'Stage Alterné'
+    | 'Autre'; // Type d'expérience (stage, alternance, emploi, freelance, autre
+  duree?: string; // Durée de l'expérience ou du projet
 }
 
 export const portfolioEntries: PortfolioEntry[] = [
@@ -70,7 +84,7 @@ Aujourd’hui, je cherche avant tout à évoluer dans un cadre qui me permettra 
       label: 'Voir mon CV',
       link: '/CV_William_Rodriguez.pdf',
     },
-    category: 'experience',
+    category: 'autre',
     position: { x: 0, y: 0 },
   },
 
@@ -115,16 +129,64 @@ Aujourd’hui, je cherche avant tout à évoluer dans un cadre qui me permettra 
     isClickable: false, // Catégorie non cliquable
     position: { x: -400, y: 0 },
   },
-
-  // Contact category (nouveau)
   {
     id: 'contact-cat',
-    title: 'Contact',
+    title: 'Contacts',
     description: '',
     detailedDescription: '',
     category: 'category',
     isClickable: false,
     position: { x: 0, y: 320 },
+  },
+  {
+    id: 'experience-cat',
+    title: 'Expériences',
+    description: '',
+    detailedDescription: '',
+    category: 'category',
+    isClickable: false,
+    position: { x: 0, y: -320 },
+  },
+
+  // Expériences :
+  {
+    id: 'exp-vinci',
+    title: 'VINCI Construction SI',
+    poste: 'Développeur stagiaire au sein d’une digital factory',
+    description: 'Gestion & Intégration de contenus pour applications internes',
+    detailedDescription: `Lors de mon stage chez VINCI Construction, j'ai eu l'opportunité de travailler sur le développement d'outils web internes visant à améliorer la gestion des opérations quotidiennes. J'ai collaboré avec une équipe dynamique pour concevoir et implémenter des solutions adaptées aux besoins spécifiques de l'entreprise.`,
+    category: 'experience',
+    position: { x: -200, y: -470 },
+    logo: vinciConstructionLogo,
+    typeExpérience: 'Stage',
+    duree: 'Juin 2022 - Août 2022',
+  },
+
+  {
+    id: 'exp-lamusee',
+    title: "L'Amusée",
+    poste: 'Développeur back end',
+    description:
+      'Développement et maintenance de l\'administration de l\'entreprise.',
+    detailedDescription: `Chez L'Amusée, j'ai eu l'occasion de travailler en tant que développeur web junior, où j'étais responsable de la création et de la maintenance de sites web pour une variété de clients. J'ai collaboré étroitement avec les équipes de design et de marketing pour m'assurer que chaque site répondait aux besoins spécifiques des clients tout en offrant une expérience utilisateur optimale. Cette expérience m'a permis de renforcer mes compétences techniques tout en développant une compréhension approfondie des attentes des clients dans le domaine du développement web.`,
+    category: 'experience',
+    position: { x: 0, y: -670 },
+    logo: lamuseeLogo,
+    typeExpérience: 'Stage Alterné',
+    duree: 'Janvier 2023 - Juillet 2023',
+  },
+
+  {
+    id: 'exp-forinov',
+    title: 'Forinov',
+    poste: 'Développeur Front-End',
+    description: 'Participation à l\'amélioration continue de la plateforme.',
+    detailedDescription: `Au sein de Forinov, j'ai travaillé en tant qu'alternant développeur web, où j'ai participé activement au développement de solutions web innovantes. J'ai eu l'opportunité de collaborer avec une équipe expérimentée, ce qui m'a permis d'acquérir des compétences pratiques tout en contribuant à des projets concrets. Cette expérience m'a non seulement aidé à renforcer mes compétences techniques, mais aussi à comprendre l'importance de l'innovation dans le domaine du développement web.`,
+    category: 'experience',
+    position: { x: 200, y: -470 },
+    logo: forinovLogo,
+    typeExpérience: 'Alternance',
+    duree: 'Septembre 2023 - Septembre 2025',
   },
 
   // Skills Frontend (petits nœuds ronds avec logos)

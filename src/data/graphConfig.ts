@@ -58,6 +58,8 @@ export const createInitialNodes = (
       nodeType = 'projectNode';
     } else if (entry.category === 'contact') {
       nodeType = 'contactNode';
+    } else if (entry.category === 'experience') {
+      nodeType = 'experienceNode';
     }
 
     return {
@@ -79,6 +81,9 @@ export const createInitialNodes = (
         email: entry.email,
         github: entry.github,
         linkedin: entry.linkedin,
+        poste: entry.poste,
+        typeExpérience: entry.typeExpérience,
+        duree: entry.duree,
       },
       draggable: true,
       selectable: true,
@@ -131,13 +136,22 @@ export const createInitialEdges = (): Edge[] => {
       style: { stroke: '#fff', strokeWidth: 4 },
       animated: true,
     },
-    // Connexion vers la catégorie Contact
     {
       id: 'e1-contact',
       source: '1',
       target: 'contact-cat',
       sourceHandle: 'bottom-source',
       targetHandle: 'top-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 4 },
+      animated: true,
+    },
+    {
+      id: 'e1-experience',
+      source: '1',
+      target: 'experience-cat',
+      sourceHandle: 'top-source',
+      targetHandle: 'bottom-target',
       type: 'default',
       style: { stroke: '#fff', strokeWidth: 4 },
       animated: true,
@@ -331,6 +345,39 @@ export const createInitialEdges = (): Edge[] => {
       style: { stroke: '#fff', strokeWidth: 2 },
       animated: false,
     },
+
+    // Connexions catégorie Expérience -> expériences
+    {
+      id: 'ecat-exp-vinci',
+      source: 'experience-cat',
+      target: 'exp-vinci',
+      sourceHandle: 'top-source',
+      targetHandle: 'bottom-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
+    {
+      id: 'ecat-exp-forinov',
+      source: 'experience-cat',
+      target: 'exp-forinov',
+      sourceHandle: 'top-source',
+      targetHandle: 'bottom-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
+    {
+      id: 'ecat-exp-lamusee',
+      source: 'experience-cat',
+      target: 'exp-lamusee',
+      sourceHandle: 'top-source',
+      targetHandle: 'bottom-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
+
   ];
 
   return edges;
