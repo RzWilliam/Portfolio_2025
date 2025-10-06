@@ -141,7 +141,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     >
                       {/* Image wrapper reserves space to avoid layout shift when image loads */}
                       <div
-                        className="w-full rounded-lg mb-4 bg-white/5 overflow-hidden sm:min-h-[150px] lg:min-h-[200px] xl:min-h-[250px]"
+                        className="w-full rounded-lg mb-4 bg-white/5 overflow-hidden min-h-[100px] sm:min-h-[150px] lg:min-h-[200px] xl:min-h-[250px] 2xl:min-h-[300px]"
                       >
                         <img
                           src={selectedEntry.previewImage}
