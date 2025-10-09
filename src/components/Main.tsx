@@ -7,6 +7,7 @@ import { portfolioEntries } from '../data/portfolioData';
 import { createInitialNodes, createInitialEdges } from '../data/graphConfig';
 import Loader from './Loader';
 import LogoSrc from '../assets/logo_white.png';
+import { Analytics } from "@vercel/analytics/react"
 
 const initialNodes = createInitialNodes(portfolioEntries);
 const initialEdges = createInitialEdges();
@@ -112,6 +113,7 @@ const Main: React.FC = () => {
           onClose={() => setIsSidebarOpen(false)}
         />
       </div>
+      <Analytics />
     </div>
   );
 };
