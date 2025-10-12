@@ -90,7 +90,7 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
             skill: '#3b82f6',
             experience: '#8b5cf6',
             contact: '#eab308',
-            category: '#3b82f6',
+            category: '#6b7280',
             'skill-item': '#60a5fa'
           };
           return colors[entry.category] || '#6b7280';
