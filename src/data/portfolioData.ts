@@ -9,6 +9,7 @@ import phpLogo from '../assets/logos/php.webp';
 import gitLogo from '../assets/logos/git.webp';
 import figmaLogo from '../assets/logos/figma.webp';
 import supabaseLogo from '../assets/logos/supabase.webp';
+import dockerLogo from '../assets/logos/docker.webp';
 import githubLogo from '../assets/logos/github.svg';
 import linkedinLogo from '../assets/logos/linkedin.webp';
 
@@ -316,7 +317,7 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     skillCategory: 'other',
     logo: gitLogo,
     isClickable: false,
-    position: { x: 400, y: 200 },
+    position: { x: 350, y: 200 },
   },
   {
     id: 'skill-figma',
@@ -327,7 +328,7 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     skillCategory: 'other',
     logo: figmaLogo,
     isClickable: false,
-    position: { x: 500, y: 250 },
+    position: { x: 440, y: 300 },
   },
   {
     id: 'skill-supabase',
@@ -339,7 +340,19 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     skillCategory: 'other',
     logo: supabaseLogo,
     isClickable: false,
-    position: { x: 600, y: 200 },
+    position: { x: 560, y: 300 },
+  },
+  {
+    id: 'skill-docker',
+    title: 'Docker',
+    description: 'Conteneurisation',
+    detailedDescription:
+      "Creation d'environnements de developpement et de deploiement reproductibles avec Docker.",
+    category: 'skill-item',
+    skillCategory: 'other',
+    logo: dockerLogo,
+    isClickable: false,
+    position: { x: 650, y: 200 },
   },
   // Projects (cards)
   {

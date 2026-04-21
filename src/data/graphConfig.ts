@@ -272,6 +272,16 @@ export const createInitialEdges = (): Edge[] => {
       style: { stroke: '#fff', strokeWidth: 2 },
       animated: false,
     },
+    {
+      id: 'ecat-docker',
+      source: 'other-cat',
+      target: 'skill-docker',
+      sourceHandle: 'bottom-source',
+      targetHandle: 'top-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
 
     // Connexions des projets vers les projets individuels
     {
