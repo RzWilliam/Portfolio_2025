@@ -29,6 +29,9 @@ import BombermanPreview from '../assets/projects/bomberman.webp';
 import SolarSystemLogo from '../assets/logos/solar-system.webp';
 import SolarSystemPreview from '../assets/projects/solar-system.webp';
 
+import KiroLogo from '../assets/logos/kiro.webp';
+import KiroPreview from '../assets/projects/kiro.webp';
+
 export interface PortfolioEntry {
   id: string;
   title: string;
@@ -154,7 +157,8 @@ Aujourd’hui, je cherche avant tout à évoluer dans un cadre qui me permettra 
     id: 'exp-vinci',
     title: 'VINCI Construction SI',
     poste: 'Développeur stagiaire au sein d’une digital factory',
-    description: 'Gestion & Intégration de contenus pour applications internes.',
+    description:
+      'Gestion & Intégration de contenus pour applications internes.',
     detailedDescription: `Durant mon stage au sein de VINCI Construction Systèmes d’Information, j’ai intégré la Digital Collab & Dev Factory, un environnement où innovation, collaboration et transformation digitale se rencontrent. En tant que développeur stagiaire au sein de la Custom Dev Factory, j’ai participé activement à des projets internes destinés à accompagner la digitalisation des métiers du BTP. Ce stage m’a offert une immersion concrète dans le fonctionnement d’une grande entreprise technologique, au cœur d’une équipe dynamique et organisée autour de méthodologies agiles comme Scrum, me permettant de comprendre la structure, la planification et la gestion complète du cycle de vie d’un projet numérique.
 
 Sur le plan technique, j’ai eu l’occasion de travailler sur plusieurs projets stimulants, notamment l’adaptation mobile d’une application interne utilisée par les équipes de communication, pour laquelle j’ai également proposé et présenté des améliorations d’interface et des maquettes UI/UX devant les clients internes. J’ai aussi réalisé des maquettes pour une future application de traduction, tout en découvrant et en pratiquant des technologies modernes telles que React et TypeScript, qui ont enrichi mes compétences en développement front-end. Ces missions m’ont permis de renforcer mes bases techniques tout en m’initiant à des problématiques réelles de production, d’ergonomie et de satisfaction client.
@@ -173,8 +177,7 @@ Ce stage chez VINCI Construction a marqué un tournant dans mon parcours : il m�
     id: 'exp-lamusee',
     title: "L'Amusée",
     poste: 'Développeur back end',
-    description:
-      "Développement et maintenance du back-office de l'entreprise.",
+    description: "Développement et maintenance du back-office de l'entreprise.",
     detailedDescription: `Durant mon stage alterné au sein de L’AMUSÉE, j’ai occupé le poste de Développeur Back-End, où j’ai eu la responsabilité du back-office et de l’espace client de l’entreprise. Cette expérience, d’une durée de six mois, m’a permis d’allier rigueur technique et créativité dans un environnement professionnel stimulant. L’AMUSÉE, marque parisienne spécialisée dans la création et la vente de robes de mariée haut de gamme, m’a offert un cadre idéal pour mettre en pratique mes compétences en développement tout en contribuant directement à l’amélioration de ses processus internes.
 
 J’ai participé à plusieurs projets clés, parmi lesquels la création d’un espace multimarques, une fonctionnalité sur mesure permettant aux partenaires de gérer leurs devis et factures en toute autonomie. Ce projet, à fort impact pour l’entreprise, a renforcé mes compétences en développement PHP et Symfony, ainsi qu’en gestion de bases de données et en conception de solutions adaptées aux besoins métiers. J’ai également conçu des graphiques statistiques dynamiques afin d’aider l’équipe à visualiser et interpréter les données commerciales, et développé des templates de mails automatisés pour optimiser la communication avec les clientes. Une autre mission majeure fut la mise en place d’un espace de suivi des livraisons connecté à Google Agenda via son API, une intégration complexe qui m’a permis d’approfondir mes connaissances en gestion d’API externes et en synchronisation de données.
@@ -355,28 +358,14 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     position: { x: 650, y: 200 },
   },
   // Projects (cards)
-  {
-    id: 'project-mantrack',
-    title: 'Mantrack',
-    description:
-      'Plateforme qui permet de suivre ses lectures de manga, manhwa et manhua.',
-    detailedDescription:
-      'ManTrack est une plateforme web dédiée aux amateurs de manga, manhwa et manhua, qui permet de gérer sa bibliothèque personnelle, suivre sa progression de lecture et découvrir de nouvelles séries. L’utilisateur peut également ajouter son propre lien de lecture personnalisé pour chaque œuvre, rendant l’expérience totalement adaptée à ses habitudes.',
-    category: 'project',
-    position: { x: -650, y: -275 },
-    technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'Python'],
-    link: 'https://www.mantrack.app/',
-    logo: MantrackLogo,
-    previewImage: MantrackPreview,
-  },
-  {
+    {
     id: 'project-bomberman',
     title: 'Bomberman Multiplayer',
     description: 'Jeu multijoueur en temps réel inspiré de Bomberman.',
     detailedDescription:
       'Bomberman Multiplayer est un jeu multijoueur en temps réel où les joueurs s’affrontent dans des arènes, posant des bombes pour détruire des obstacles et éliminer leurs adversaires.',
     category: 'project',
-    position: { x: -750, y: -100 },
+    position: { x: -600, y: -350 },
     technologies: ['React', 'Socket.IO', 'Node.js', 'Phaser'],
     repository: 'https://github.com/RzWilliam/bomberman-multiplayer',
     link: 'https://bomberman-multiplayer.vercel.app/',
@@ -384,18 +373,30 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     previewImage: BombermanPreview,
   },
   {
-    id: 'project-solar-system',
-    title: 'Solar System Explorer',
-    description: 'Explorez le système solaire en 3D interactif.',
+    id: 'project-mantrack',
+    title: 'ManTrack',
+    description:
+      'Plateforme qui permet de suivre ses lectures de manga, manhwa et manhua.',
     detailedDescription:
-      "Solar System Explorer est une application web interactive qui permet aux utilisateurs d'explorer le système solaire en 3D. En utilisant des technologies modernes comme React et Three.js, l'application offre une expérience immersive où les utilisateurs peuvent naviguer entre les planètes, découvrir des informations fascinantes sur chacune d'elles, et visualiser leurs orbites en temps réel. C'est un outil éducatif parfait pour les passionnés d'astronomie de tous âges.",
+      'ManTrack est une plateforme web dédiée aux amateurs de manga, manhwa et manhua, qui permet de gérer sa bibliothèque personnelle, suivre sa progression de lecture et découvrir de nouvelles séries. L’utilisateur peut également ajouter son propre lien de lecture personnalisé pour chaque œuvre, rendant l’expérience totalement adaptée à ses habitudes.',
     category: 'project',
-    position: { x: -750, y: 100 },
-    technologies: ['Three.js', 'React', 'TypeScript', 'Tailwind'],
-    repository: 'https://github.com/RzWilliam/solar-system',
-    link: 'https://solar-system-sand-six.vercel.app/',
-    logo: SolarSystemLogo,
-    previewImage: SolarSystemPreview,
+    position: { x: -750, y: -175 },
+    technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'Python'],
+    link: 'https://www.mantrack.app/',
+    logo: MantrackLogo,
+    previewImage: MantrackPreview,
+  },
+  {
+    id: 'project-kiro',
+    title: 'Kiro',
+    description: 'Plateforme web de jeux multijoueurs en temps réel.',
+    detailedDescription: `Kiro est une plateforme web dédiée aux amateurs de jeux multijoueurs en ligne, qui permet de rejoindre ou créer des salles de jeu en temps réel et d'affronter des amis sur des jeux classiques et originaux comme le Morpion, Puissance 4, le Memory, Skyto ou encore Lovelle. L'utilisateur peut jouer en tant qu'invité ou créer un compte pour suivre ses statistiques, personnaliser son profil et retrouver sa progression au fil des parties.`,
+    category: 'project',
+    position: { x: -900, y: 0 },
+    technologies: ['Socket.IO', 'React', 'Node.js', 'TypeScript', 'Supabase', 'Tailwind'],
+    link: 'https://www.kirogames.net/',
+    logo: KiroLogo,
+    previewImage: KiroPreview,
   },
   {
     id: 'project-ygodle',
@@ -404,11 +405,25 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     detailedDescription:
       'YGOdle est un jeu en ligne quotidien inspiré du principe de Wordle, mais adapté à l’univers Yu-Gi-Oh!. Chaque jour, les joueurs doivent deviner une carte Yu-Gi-Oh! en un nombre limité d’essais, en s’appuyant sur des indices comme l’attribut, le type, l’attaque, la défense ou encore l’archétype. Le projet combine base de données, logique de jeu et interface interactive, offrant une expérience à la fois ludique et compétitive pour les passionnés de Yu-Gi-Oh!.',
     category: 'project',
-    position: { x: -650, y: 275 },
+    position: { x: -750, y: 175 },
     technologies: ['React', 'Supabase', 'TypeScript', 'Tailwind'],
     link: 'https://www.ygodle.net',
     logo: YGOdleLogo,
     previewImage: YGOdlePreview,
+  },
+  {
+    id: 'project-solar-system',
+    title: 'Solar System Explorer',
+    description: 'Explorez le système solaire en 3D interactif.',
+    detailedDescription:
+      "Solar System Explorer est une application web interactive qui permet aux utilisateurs d'explorer le système solaire en 3D. En utilisant des technologies modernes comme React et Three.js, l'application offre une expérience immersive où les utilisateurs peuvent naviguer entre les planètes, découvrir des informations fascinantes sur chacune d'elles, et visualiser leurs orbites en temps réel. C'est un outil éducatif parfait pour les passionnés d'astronomie de tous âges.",
+    category: 'project',
+    position: { x: -600, y: 350 },
+    technologies: ['Three.js', 'React', 'TypeScript', 'Tailwind'],
+    repository: 'https://github.com/RzWilliam/solar-system',
+    link: 'https://solar-system-sand-six.vercel.app/',
+    logo: SolarSystemLogo,
+    previewImage: SolarSystemPreview,
   },
   // Contacts (liés à la catégorie contact)
   {
