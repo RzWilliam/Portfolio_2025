@@ -240,6 +240,16 @@ export const createInitialEdges = (): Edge[] => {
       style: { stroke: '#fff', strokeWidth: 2 },
       animated: false,
     },
+    {
+      id: 'ecat-python',
+      source: 'backend-cat',
+      target: 'skill-python',
+      sourceHandle: 'right-source',
+      targetHandle: 'left-target',
+      type: 'default',
+      style: { stroke: '#fff', strokeWidth: 2 },
+      animated: false,
+    },
 
     // Connexions des catégories vers les skills individuels - Autres
     {

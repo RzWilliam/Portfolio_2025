@@ -6,6 +6,7 @@ import nodejsLogo from '../assets/logos/nodejs.webp';
 import symfonyLogo from '../assets/logos/symfony.webp';
 import socketioLogo from '../assets/logos/socketio.webp';
 import phpLogo from '../assets/logos/php.webp';
+import pythonLogo from '../assets/logos/python.webp';
 import gitLogo from '../assets/logos/git.webp';
 import figmaLogo from '../assets/logos/figma.webp';
 import supabaseLogo from '../assets/logos/supabase.webp';
@@ -271,7 +272,7 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     skillCategory: 'backend',
     logo: nodejsLogo,
     isClickable: false,
-    position: { x: 800, y: -100 },
+    position: { x: 820, y: -130 },
   },
   {
     id: 'skill-symfony',
@@ -283,7 +284,19 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     skillCategory: 'backend',
     logo: symfonyLogo,
     isClickable: false,
-    position: { x: 900, y: -60 },
+    position: { x: 920, y: -75 },
+  },
+  {
+    id: 'skill-python',
+    title: 'Python',
+    description: 'Scripting & automatisation',
+    detailedDescription:
+      'Scripting, automatisation et traitement de données avec Python.',
+    category: 'skill-item',
+    skillCategory: 'backend',
+    logo: pythonLogo,
+    isClickable: false,
+    position: { x: 1020, y: 0 },
   },
   {
     id: 'skill-socketio',
@@ -295,7 +308,7 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     skillCategory: 'backend',
     logo: socketioLogo,
     isClickable: false,
-    position: { x: 900, y: 60 },
+    position: { x: 920, y: 75 },
   },
   {
     id: 'skill-php',
@@ -307,7 +320,7 @@ Enfin, cette expérience m’a permis de renforcer mes soft skills, indispensabl
     skillCategory: 'backend',
     logo: phpLogo,
     isClickable: false,
-    position: { x: 800, y: 100 },
+    position: { x: 820, y: 130 },
   },
 
   // Skills Autres (petits nœuds ronds avec logos)
